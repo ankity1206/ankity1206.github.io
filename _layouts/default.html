@@ -6,6 +6,17 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  <div class="cursor-bubble"></div>
+  <script>
+  const bubble = document.querySelector('.cursor-bubble');
+
+  document.addEventListener('mousemove', (e) => {
+    // Updates the bubble's position to match the mouse coordinates
+    bubble.style.left = e.clientX + 'px';
+    bubble.style.top = e.clientY + 'px';
+  });
+</script>
+
   {{ content }}
 </body>
 </html>
