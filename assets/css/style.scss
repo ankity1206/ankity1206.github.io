@@ -1,0 +1,10 @@
+---
+---
+
+@import "{{ site.theme }}";
+// Automatically adds a delay to each item so they fly in one-by-one
+@for $i from 1 through 5 {
+  .nav-item:nth-child(#{$i}) {
+    animation-delay: 0.1s * $i;
+  }
+}
