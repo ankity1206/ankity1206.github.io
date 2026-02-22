@@ -3,64 +3,52 @@
 <head>
   <meta charset="utf-8">
   <title>{{ site.title }}</title>
-  <!-- Link to the processed CSS file -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  <!-- The bubble element -->
   <div class="cursor-bubble"></div>
 
-  <!-- Main content of your pages -->
   <main>
     {{ content }}
   </main>
 
-  <!-- Mouse tracking script -->
   <script>
     const bubble = document.querySelector('.cursor-bubble');
 
+    // 1. Smooth Bubble Movement
     document.addEventListener('mousemove', (e) => {
-      // requestAnimationFrame ensures smooth movement without lag
       window.requestAnimationFrame(() => {
         bubble.style.left = e.clientX + 'px';
         bubble.style.top = e.clientY + 'px';
       });
     });
+
+    // 2. Click Explosion (Emoji Spawner)
+    document.addEventListener('click', (e) => {
+      const emojis = ['😂', '✨', '🎈', '💀', '🍄', '🍕', '🔥', '🌈'];
+      const span = document.createElement('span');
+      span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.cssText = `
+        position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
+        pointer-events: none; font-size: 2.5rem; z-index: 10000;
+        animation: explode 0.8s ease-out forwards;
+      `;
+      document.body.appendChild(span);
+      setTimeout(() => span.remove(), 800);
+    });
+
+    // 3. Cowardly Repo Cards (Run away on hover)
+    // We use a slight delay to ensure the cards are actually on the page
+    setTimeout(() => {
+      document.querySelectorAll('.repo-card').forEach(card => {
+        card.addEventListener('mouseover', function() {
+          const x = (Math.random() - 0.5) * 40; // Moves left or right
+          const y = (Math.random() - 0.5) * 40; // Moves up or down
+          const r = (Math.random() - 0.5) * 20; // Tilts
+          this.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
+        });
+      });
+    }, 1000);
   </script>
-
-  <script>
-  const bubble = document.querySelector('.cursor-bubble');
-
-  // 1. Smooth Bubble Movement
-  document.addEventListener('mousemove', (e) => {
-    window.requestAnimationFrame(() => {
-      bubble.style.left = e.clientX + 'px';
-      bubble.style.top = e.clientY + 'px';
-    });
-  });
-
-  // 2. Click Explosion (Emoji Spawner)
-  document.addEventListener('click', (e) => {
-    const emojis = ['😂', '✨', '🎈', '💀', '🍄', '🍕'];
-    const span = document.createElement('span');
-    span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-    span.style.cssText = `
-      position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
-      pointer-events: none; font-size: 2rem; z-index: 10000;
-      animation: explode 0.8s ease-out forwards;
-    `;
-    document.body.appendChild(span);
-    setTimeout(() => span.remove(), 800);
-  });
-
-  // 3. Cowardly Buttons (They run away once)
-  document.querySelectorAll('.repo-card').forEach(card => {
-    card.addEventListener('mouseover', function() {
-      this.style.transform = `translate(${Math.random() * 20}px, ${Math.random() * 20}px) rotate(${Math.random() * 5}deg)`;
-    });
-  });
-</script>
-
-  
 </body>
 </html>
