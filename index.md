@@ -27,6 +27,6 @@ Myself Ankit Yadav
 <div class="repo-container">
   <div class="repo-card">
     <h3><a href="https://github.com/ankity1206/from_mtech">Project One</a></h3>
-    <p>This is a description of my cool project.</p>
+    <p>For MTech course notes.</p>
   </div>
 </div>
