@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Welcome to My Site! 🚀
+# Welcome to trials.
 
 <!-- Fixed Image Search Block -->
 <div class="search-container">
@@ -17,7 +17,6 @@ layout: default
 </div>
 
 ---
-# Hello, welcome to my webpage.
 Myself Ankit Yadav
 
 > This page is just to try new commands.
