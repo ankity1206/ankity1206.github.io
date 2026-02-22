@@ -27,5 +27,40 @@
       });
     });
   </script>
+
+  <script>
+  const bubble = document.querySelector('.cursor-bubble');
+
+  // 1. Smooth Bubble Movement
+  document.addEventListener('mousemove', (e) => {
+    window.requestAnimationFrame(() => {
+      bubble.style.left = e.clientX + 'px';
+      bubble.style.top = e.clientY + 'px';
+    });
+  });
+
+  // 2. Click Explosion (Emoji Spawner)
+  document.addEventListener('click', (e) => {
+    const emojis = ['😂', '✨', '🎈', '💀', '🍄', '🍕'];
+    const span = document.createElement('span');
+    span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    span.style.cssText = `
+      position: fixed; left: ${e.clientX}px; top: ${e.clientY}px;
+      pointer-events: none; font-size: 2rem; z-index: 10000;
+      animation: explode 0.8s ease-out forwards;
+    `;
+    document.body.appendChild(span);
+    setTimeout(() => span.remove(), 800);
+  });
+
+  // 3. Cowardly Buttons (They run away once)
+  document.querySelectorAll('.repo-card').forEach(card => {
+    card.addEventListener('mouseover', function() {
+      this.style.transform = `translate(${Math.random() * 20}px, ${Math.random() * 20}px) rotate(${Math.random() * 5}deg)`;
+    });
+  });
+</script>
+
+  
 </body>
 </html>
