@@ -2,21 +2,30 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- PUT YOUR LINK HERE -->
+  <title>{{ site.title }}</title>
+  <!-- Link to the processed CSS file -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
+  <!-- The bubble element -->
   <div class="cursor-bubble"></div>
+
+  <!-- Main content of your pages -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Mouse tracking script -->
   <script>
-  const bubble = document.querySelector('.cursor-bubble');
+    const bubble = document.querySelector('.cursor-bubble');
 
-  document.addEventListener('mousemove', (e) => {
-    // Updates the bubble's position to match the mouse coordinates
-    bubble.style.left = e.clientX + 'px';
-    bubble.style.top = e.clientY + 'px';
-  });
-</script>
-
-  {{ content }}
+    document.addEventListener('mousemove', (e) => {
+      // requestAnimationFrame ensures smooth movement without lag
+      window.requestAnimationFrame(() => {
+        bubble.style.left = e.clientX + 'px';
+        bubble.style.top = e.clientY + 'px';
+      });
+    });
+  </script>
 </body>
 </html>
