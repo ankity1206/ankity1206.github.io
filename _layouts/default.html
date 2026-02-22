@@ -7,16 +7,15 @@
 </head>
 <body>
   <div class="cursor-bubble"></div>
+
   <div class="search-container">
-  <form action="https://www.google.com/search" method="GET" target="_blank">
-    <!-- These two hidden fields force Google into "Image Mode" -->
-    <input type="hidden" name="tbm" value="isch">
-    <input type="hidden" name="udm" value="2">
-    
-    <input type="text" name="q" placeholder="Search for images..." class="search-input" required>
-    <button type="submit" class="search-button">🖼️ Image Search</button>
-  </form>
-</div>
+    <form action="https://www.google.com" method="GET" target="_blank">
+      <input type="hidden" name="tbm" value="isch">
+      <input type="hidden" name="udm" value="2">
+      <input type="text" name="q" placeholder="Search images..." class="search-input" required>
+      <button type="submit" class="search-button">🖼️ Search</button>
+    </form>
+  </div>
 
   <main>
     {{ content }}
@@ -25,7 +24,7 @@
   <script>
     const bubble = document.querySelector('.cursor-bubble');
 
-    // 1. Smooth Bubble Movement
+    // Smooth Mouse Tracking
     document.addEventListener('mousemove', (e) => {
       window.requestAnimationFrame(() => {
         bubble.style.left = e.clientX + 'px';
@@ -33,9 +32,9 @@
       });
     });
 
-    // 2. Click Explosion (Emoji Spawner)
+    // Emoji Explosion on Click
     document.addEventListener('click', (e) => {
-      const emojis = ['😂', '✨', '🎈', '💀', '🍄', '🍕', '🔥', '🌈'];
+      const emojis = ['😂', '✨', '💀', '🍄', '🍕', '🌈'];
       const span = document.createElement('span');
       span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
       span.style.cssText = `
@@ -47,15 +46,13 @@
       setTimeout(() => span.remove(), 800);
     });
 
-    // 3. Cowardly Repo Cards (Run away on hover)
-    // We use a slight delay to ensure the cards are actually on the page
+    // Make Repo Cards "Cowardly"
     setTimeout(() => {
       document.querySelectorAll('.repo-card').forEach(card => {
         card.addEventListener('mouseover', function() {
-          const x = (Math.random() - 0.5) * 40; // Moves left or right
-          const y = (Math.random() - 0.5) * 40; // Moves up or down
-          const r = (Math.random() - 0.5) * 20; // Tilts
-          this.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
+          const x = (Math.random() - 0.5) * 30;
+          const y = (Math.random() - 0.5) * 30;
+          this.style.transform = `translate(${x}px, ${y}px)`;
         });
       });
     }, 1000);
