@@ -27,7 +27,7 @@ Myself Ankit Yadav
 ### My Projects
 <div class="repo-container">
   <div class="repo-card">
-    <h3><a href="https://github.com">Project One</a></h3>
+    <h3><a href="https://github.com/from_mtech">Project One</a></h3>
     <p>This is a description of my cool project.</p>
   </div>
 </div>
