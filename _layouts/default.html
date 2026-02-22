@@ -7,6 +7,16 @@
 </head>
 <body>
   <div class="cursor-bubble"></div>
+  <div class="search-container">
+  <form action="https://www.google.com/search" method="GET" target="_blank">
+    <!-- These two hidden fields force Google into "Image Mode" -->
+    <input type="hidden" name="tbm" value="isch">
+    <input type="hidden" name="udm" value="2">
+    
+    <input type="text" name="q" placeholder="Search for images..." class="search-input" required>
+    <button type="submit" class="search-button">🖼️ Image Search</button>
+  </form>
+</div>
 
   <main>
     {{ content }}
