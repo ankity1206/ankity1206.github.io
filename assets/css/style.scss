@@ -2,7 +2,7 @@
 ---
 @import "{{ site.theme }}";
 
-// 1. GLOBAL STYLES & ANIMATED BACKGROUND
+// 1. GLOBAL STYLES & DUAL-ANIMATION BACKGROUND
 body {
   margin: 0;
   min-height: 100vh;
@@ -12,12 +12,12 @@ body {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
-  cursor: none; // Hides default cursor so the bubble takes over
+  cursor: none; // Hides default cursor
 
-  // Animated Gradient Background
+  // Combined Animations: Gradient movement + Color shifting
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) !important;
   background-size: 400% 400% !important;
-  animation: gradient 15s ease infinite, colorShift 30s infinite;
+  animation: gradient 15s ease infinite, colorShift 30s infinite !important;
 }
 
 @keyframes gradient {
@@ -26,7 +26,12 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-// 2. CURSOR BUBBLE STYLING
+@keyframes colorShift {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+// 2. CURSOR BUBBLE & HOVER EFFECTS
 .cursor-bubble {
   width: 30px;
   height: 30px;
@@ -34,52 +39,75 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   position: fixed;
-  pointer-events: none; // Essential so you can click through the bubble
+  pointer-events: none;
   z-index: 9999;
   transition: transform 0.15s ease-out, background-color 0.3s;
   transform: translate(-50%, -50%);
 }
 
-// 3. INTERACTIVE HOVER EFFECT
-// When hovering over a link, the bubble grows and brightens
+// Bubble grows when hovering over links or buttons
 a:hover ~ .cursor-bubble, 
-body:has(a:hover) .cursor-bubble {
+button:hover ~ .cursor-bubble,
+body:has(a:hover) .cursor-bubble,
+body:has(button:hover) .cursor-bubble {
   transform: translate(-50%, -50%) scale(2);
   background-color: rgba(255, 255, 255, 0.6);
-  border-color: #fff;
 }
 
-// Explosion Animation for the Emoji Click
+// 3. IMAGE SEARCH STYLING
+.search-container {
+  margin: 20px auto;
+  text-align: center;
+  z-index: 100;
+  position: relative;
+}
+
+.search-input {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 60%;
+  outline: none;
+  &:focus {
+    cursor: text; // Shows text cursor when typing
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.search-button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  font-weight: bold;
+  transition: transform 0.2s;
+  &:hover { transform: scale(1.1); }
+}
+
+// 4. EXTRA FUN: REPO CARDS & EXPLOSIONS
+.repo-card {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  &:hover {
+    animation: wiggle 0.3s infinite;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
 @keyframes explode {
   0% { transform: scale(1) translateY(0); opacity: 1; }
   100% { transform: scale(3) translateY(-100px) rotate(360deg); opacity: 0; }
 }
 
-// Make the Repo Cards "Wiggle" when you look at them
-.repo-card {
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-  &:hover {
-    animation: wiggle 0.3s infinite;
-    filter: hue-rotate(90deg); // Changes color randomly on hover
-  }
-}
-
-@keyframes wiggle {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(2deg); }
-  75% { transform: rotate(-2deg); }
-  100% { transform: rotate(0deg); }
-}
-
-// Secret: Make the scrollbar a rainbow
+// Rainbow Scrollbar
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #222; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background: linear-gradient(#ff0000, #ff7f00, #ffff00, #00ff00, #0000ff);
   border-radius: 10px;
-}
-
-@keyframes colorShift {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
 }
