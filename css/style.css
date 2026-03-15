@@ -10,7 +10,10 @@ color:white;
 
 text-align:center;
 
-overflow:hidden;
+/* allow vertical scroll but prevent sideways scroll */
+
+overflow-x:hidden;
+overflow-y:auto;
 
 }
 
