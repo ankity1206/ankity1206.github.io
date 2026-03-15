@@ -3,7 +3,7 @@
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:linear-gradient(to bottom,#000428,#004e92);
+background:#020111;
 color:white;
 text-align:center;
 overflow:hidden;
@@ -17,24 +17,24 @@ overflow:hidden;
 position:fixed;
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 background:
-
 radial-gradient(white 1px, transparent 1px),
 radial-gradient(white 1px, transparent 1px),
 radial-gradient(white 2px, transparent 2px);
-
-background-size:50px 50px,100px 100px,200px 200px;
-
-background-position:0 0,25px 25px,10px 40px;
-
-animation:starsMove 120s linear infinite;
-
+background-size:
+80px 80px,
+120px 120px,
+200px 200px;
+background-position:
+0 0,
+40px 60px,
+130px 70px;
+animation:
+starsMove 120s linear infinite,
+starsTwinkle 5s ease-in-out infinite;
 z-index:-2;
-
 }
 
 @keyframes starsMove{
@@ -49,7 +49,18 @@ transform:translateY(-2000px);
 
 }
 
-
+@keyframes starsTwinkle{
+0%{
+opacity:0.6;
+}
+50%{
+opacity:1;
+}
+100%{
+opacity:0.6;
+}
+  
+}
 /* ---------- Solar System Background ---------- */
 
 .solar-system{
@@ -78,23 +89,17 @@ pointer-events:none;
 .sun{
 
 position:absolute;
-
 width:80px;
 height:80px;
-
 background:radial-gradient(circle,#FFD700,#FF8C00);
-
 border-radius:50%;
-
 top:50%;
 left:50%;
-
 transform:translate(-50%,-50%);
-
-box-shadow:0 0 60px gold;
-
+box-shadow:
+0 0 60px gold,
+0 0 120px rgba(255,200,0,0.3);
 animation:sunPulse 4s ease-in-out infinite;
-
 }
 
 @keyframes sunPulse{
