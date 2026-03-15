@@ -1,5 +1,6 @@
 const scene = new THREE.Scene();
 
+
 /* Camera */
 
 const camera = new THREE.PerspectiveCamera(
@@ -34,27 +35,6 @@ const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sun);
 
 
-/* Earth Orbit */
-
-const earthOrbit = new THREE.Object3D();
-scene.add(earthOrbit);
-
-
-/* Earth */
-
-const earthGeometry = new THREE.SphereGeometry(0.6,32,32);
-
-const earthMaterial = new THREE.MeshStandardMaterial({
-color:0x3366ff
-});
-
-const earth = new THREE.Mesh(earthGeometry, earthMaterial);
-
-earth.position.x = 6;
-
-earthOrbit.add(earth);
-
-
 /* Light */
 
 const light = new THREE.PointLight(0xffffff,2);
@@ -63,7 +43,67 @@ light.position.set(0,0,0);
 scene.add(light);
 
 
-/* Handle Window Resize */
+/* Mercury */
+
+const mercuryOrbit = new THREE.Object3D();
+scene.add(mercuryOrbit);
+
+const mercury = new THREE.Mesh(
+new THREE.SphereGeometry(0.3,32,32),
+new THREE.MeshStandardMaterial({color:0xaaaaaa})
+);
+
+mercury.position.x = 3;
+
+mercuryOrbit.add(mercury);
+
+
+/* Venus */
+
+const venusOrbit = new THREE.Object3D();
+scene.add(venusOrbit);
+
+const venus = new THREE.Mesh(
+new THREE.SphereGeometry(0.5,32,32),
+new THREE.MeshStandardMaterial({color:0xffcc88})
+);
+
+venus.position.x = 4.5;
+
+venusOrbit.add(venus);
+
+
+/* Earth */
+
+const earthOrbit = new THREE.Object3D();
+scene.add(earthOrbit);
+
+const earth = new THREE.Mesh(
+new THREE.SphereGeometry(0.6,32,32),
+new THREE.MeshStandardMaterial({color:0x3366ff})
+);
+
+earth.position.x = 6;
+
+earthOrbit.add(earth);
+
+
+/* Mars */
+
+const marsOrbit = new THREE.Object3D();
+scene.add(marsOrbit);
+
+const mars = new THREE.Mesh(
+new THREE.SphereGeometry(0.45,32,32),
+new THREE.MeshStandardMaterial({color:0xff5533})
+);
+
+mars.position.x = 8;
+
+marsOrbit.add(mars);
+
+
+/* Resize handling */
 
 window.addEventListener("resize", () => {
 
@@ -81,11 +121,10 @@ function animate(){
 
 requestAnimationFrame(animate);
 
-/* Orbit rotation */
-
+mercuryOrbit.rotation.y += 0.03;
+venusOrbit.rotation.y += 0.02;
 earthOrbit.rotation.y += 0.01;
-
-/* Earth spin */
+marsOrbit.rotation.y += 0.008;
 
 earth.rotation.y += 0.02;
 
