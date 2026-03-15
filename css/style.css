@@ -42,8 +42,7 @@ position:relative;
 
 z-index:10;
 
-margin-top:120px;
-
+margin-top:140px;
 max-width:700px;
 
 margin-left:auto;
@@ -93,5 +92,71 @@ z-index:-2;
 0%{opacity:0.6;}
 50%{opacity:1;}
 100%{opacity:0.6;}
+
+}
+
+/* Navigation bar */
+
+.navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:12px 40px;
+
+background:rgba(0,0,0,0.6);
+
+backdrop-filter:blur(6px);
+
+z-index:100;
+
+}
+
+
+/* Left title */
+
+.nav-left{
+
+font-size:18px;
+
+font-weight:bold;
+
+letter-spacing:1px;
+
+}
+
+
+/* Links */
+
+.nav-right a{
+
+margin-left:25px;
+
+text-decoration:none;
+
+color:white;
+
+font-size:15px;
+
+transition:0.3s;
+
+}
+
+
+/* Hover effect */
+
+.nav-right a:hover{
+
+color:#66ccff;
 
 }
