@@ -97,28 +97,28 @@ z-index:-2;
 
 /* Navigation bar */
 
+/* Navigation bar */
+
 .navbar{
 
 position:fixed;
-
 top:0;
 left:0;
 
 width:100%;
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
-padding:12px 40px;
+padding:12px 20px;
 
 background:rgba(0,0,0,0.6);
-
 backdrop-filter:blur(6px);
 
 z-index:100;
+
+box-sizing:border-box;
 
 }
 
@@ -128,10 +128,20 @@ z-index:100;
 .nav-left{
 
 font-size:18px;
-
 font-weight:bold;
-
 letter-spacing:1px;
+
+white-space:nowrap;
+
+}
+
+
+/* Right links */
+
+.nav-right{
+
+display:flex;
+flex-wrap:wrap;
 
 }
 
@@ -140,15 +150,16 @@ letter-spacing:1px;
 
 .nav-right a{
 
-margin-left:25px;
+margin-left:20px;
 
 text-decoration:none;
-
 color:white;
 
 font-size:15px;
 
 transition:0.3s;
+
+white-space:nowrap;
 
 }
 
@@ -158,5 +169,6 @@ transition:0.3s;
 .nav-right a:hover{
 
 color:#66ccff;
+text-shadow:0 0 10px #66ccff;
 
 }
