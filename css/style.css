@@ -200,3 +200,57 @@ font-size:14px;
 }
 
 }
+
+
+/* Table styling */
+
+.repo-table{
+
+margin:auto;
+
+margin-top:40px;
+
+border-collapse:collapse;
+
+min-width:300px;
+
+background:rgba(0,0,0,0.6);
+
+backdrop-filter:blur(6px);
+
+color:white;
+
+}
+
+
+.repo-table th,
+.repo-table td{
+
+padding:12px 20px;
+
+border-bottom:1px solid rgba(255,255,255,0.2);
+
+}
+
+
+.repo-table th{
+
+background:rgba(255,255,255,0.1);
+
+}
+
+
+.repo-table a{
+
+color:#66ccff;
+
+text-decoration:none;
+
+}
+
+
+.repo-table a:hover{
+
+text-shadow:0 0 10px #66ccff;
+
+}
