@@ -1,0 +1,236 @@
+/* ---------- Global ---------- */
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(to bottom,#000428,#004e92);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+
+/* ---------- Star Background ---------- */
+
+.stars{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 2px, transparent 2px);
+
+background-size:50px 50px,100px 100px,200px 200px;
+
+background-position:0 0,25px 25px,10px 40px;
+
+animation:starsMove 120s linear infinite;
+
+z-index:-2;
+
+}
+
+@keyframes starsMove{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-2000px);
+}
+
+}
+
+
+/* ---------- Solar System Background ---------- */
+
+.solar-system{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:900px;
+height:900px;
+
+opacity:0.7;
+
+z-index:-1;
+
+pointer-events:none;
+
+}
+
+
+/* ---------- Sun ---------- */
+
+.sun{
+
+position:absolute;
+
+width:80px;
+height:80px;
+
+background:radial-gradient(circle,#FFD700,#FF8C00);
+
+border-radius:50%;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+box-shadow:0 0 60px gold;
+
+animation:sunPulse 4s ease-in-out infinite;
+
+}
+
+@keyframes sunPulse{
+
+0%{
+box-shadow:0 0 40px gold;
+}
+
+50%{
+box-shadow:0 0 90px gold;
+}
+
+100%{
+box-shadow:0 0 40px gold;
+}
+
+}
+
+
+/* ---------- Orbits ---------- */
+
+.orbit{
+
+position:absolute;
+
+border:1px dashed rgba(255,255,255,0.2);
+
+border-radius:50%;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+animation:orbit linear infinite;
+
+}
+
+@keyframes orbit{
+
+from{
+transform:translate(-50%,-50%) rotate(0deg);
+}
+
+to{
+transform:translate(-50%,-50%) rotate(360deg);
+}
+
+}
+
+
+/* ---------- Planets ---------- */
+
+.planet{
+
+position:absolute;
+
+top:50%;
+left:100%;
+
+transform:translate(-50%,-50%);
+
+border-radius:50%;
+
+}
+
+
+/* ---------- Orbit Sizes ---------- */
+
+.mercury-orbit{
+width:250px;
+height:250px;
+animation-duration:4s;
+}
+
+.venus-orbit{
+width:380px;
+height:380px;
+animation-duration:7s;
+}
+
+.earth-orbit{
+width:520px;
+height:520px;
+animation-duration:10s;
+}
+
+.mars-orbit{
+width:650px;
+height:650px;
+animation-duration:18s;
+}
+
+
+/* ---------- Planet Colors ---------- */
+
+.mercury{
+width:12px;
+height:12px;
+background:#8c7853;
+}
+
+.venus{
+width:16px;
+height:16px;
+background:#d4af37;
+}
+
+.earth{
+width:18px;
+height:18px;
+background:#4169e1;
+}
+
+.mars{
+width:16px;
+height:16px;
+background:#cd5c5c;
+}
+
+
+/* ---------- Foreground Content ---------- */
+
+.content{
+
+position:relative;
+
+z-index:10;
+
+margin-top:120px;
+
+max-width:700px;
+
+margin-left:auto;
+margin-right:auto;
+
+padding:20px;
+
+}
