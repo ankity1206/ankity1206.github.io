@@ -50,11 +50,24 @@ max-width:700px;
 
 margin-left:auto;
 margin-right:auto;
-
+animation:fadeIn 1s ease-in;
 padding:20px;
 
 }
 
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
 
 /* Star background */
 
@@ -256,4 +269,27 @@ text-decoration:none;
 
 text-shadow:0 0 10px #66ccff;
 
+}
+
+/* -----for scrolling----------*/
+html{
+scroll-behavior:smooth;
+}
+/* Scrollbar styling */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-track{
+background:#000;
+}
+
+::-webkit-scrollbar-thumb{
+background:#444;
+border-radius:4px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#888;
 }
