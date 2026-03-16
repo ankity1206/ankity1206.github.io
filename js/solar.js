@@ -4,48 +4,13 @@ const scene = new THREE.Scene();
 
 
 
-/* Starfield */
-
-const starGeometry = new THREE.BufferGeometry();
-
-const starCount = 4000;
-
-const positions = [];
-
-for(let i=0;i<starCount;i++){
-
-positions.push(
-(Math.random()-0.5)*1000,
-(Math.random()-0.5)*1000,
-(Math.random()-0.5)*1000
-);
-
-}
-
-starGeometry.setAttribute(
-'position',
-new THREE.Float32BufferAttribute(positions,3)
-);
-
-const starMaterial = new THREE.PointsMaterial({
-color:0xffffff,
-size:0.7,
-sizeAttenuation:true
-});
-
-const stars = new THREE.Points(starGeometry,starMaterial);
-
-scene.add(stars);
-
-
-
 /* Camera */
 
 const camera = new THREE.PerspectiveCamera(
 75,
 window.innerWidth / window.innerHeight,
 0.1,
-1000
+2000
 );
 
 camera.position.set(0,5,15);
@@ -60,9 +25,80 @@ alpha:true,
 antialias:true
 });
 
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+renderer.setSize(window.innerWidth,window.innerHeight);
 
 document.body.appendChild(renderer.domElement);
+
+
+
+/* -------- STARFIELD LAYER 1 (DISTANT STARS) -------- */
+
+const starGeometry1 = new THREE.BufferGeometry();
+
+const starCount1 = 6000;
+
+const positions1 = [];
+
+for(let i=0;i<starCount1;i++){
+
+positions1.push(
+(Math.random()-0.5)*1500,
+(Math.random()-0.5)*1500,
+(Math.random()-0.5)*1500
+);
+
+}
+
+starGeometry1.setAttribute(
+'position',
+new THREE.Float32BufferAttribute(positions1,3)
+);
+
+const starMaterial1 = new THREE.PointsMaterial({
+color:0xffffff,
+size:0.4,
+sizeAttenuation:true
+});
+
+const stars1 = new THREE.Points(starGeometry1,starMaterial1);
+
+scene.add(stars1);
+
+
+
+/* -------- STARFIELD LAYER 2 (NEAR STARS) -------- */
+
+const starGeometry2 = new THREE.BufferGeometry();
+
+const starCount2 = 2000;
+
+const positions2 = [];
+
+for(let i=0;i<starCount2;i++){
+
+positions2.push(
+(Math.random()-0.5)*600,
+(Math.random()-0.5)*600,
+(Math.random()-0.5)*600
+);
+
+}
+
+starGeometry2.setAttribute(
+'position',
+new THREE.Float32BufferAttribute(positions2,3)
+);
+
+const starMaterial2 = new THREE.PointsMaterial({
+color:0xffffff,
+size:0.8,
+sizeAttenuation:true
+});
+
+const stars2 = new THREE.Points(starGeometry2,starMaterial2);
+
+scene.add(stars2);
 
 
 
@@ -80,7 +116,7 @@ scene.add(sun);
 
 
 
-/* Sun Glow */
+/* Sun glow */
 
 const glowGeometry = new THREE.SphereGeometry(2.6,32,32);
 
@@ -99,6 +135,7 @@ scene.add(glow);
 /* Light */
 
 const light = new THREE.PointLight(0xffffff,2);
+
 light.position.set(0,0,0);
 
 scene.add(light);
@@ -169,21 +206,21 @@ marsOrbit.add(mars);
 
 
 
-/* Tilt solar system */
+/* Tilt solar system for realism */
 
 scene.rotation.x = 0.4;
 
 
 
-/* Resize Handling */
+/* Resize handling */
 
-window.addEventListener("resize", ()=>{
+window.addEventListener("resize",()=>{
 
 camera.aspect = window.innerWidth / window.innerHeight;
 
 camera.updateProjectionMatrix();
 
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth,window.innerHeight);
 
 });
 
@@ -197,7 +234,7 @@ requestAnimationFrame(animate);
 
 
 
-/* Planet Orbits */
+/* Planet orbits */
 
 mercuryOrbit.rotation.y += 0.03;
 venusOrbit.rotation.y += 0.02;
@@ -206,7 +243,7 @@ marsOrbit.rotation.y += 0.008;
 
 
 
-/* Planet Rotation */
+/* Planet spin */
 
 earth.rotation.y += 0.02;
 
@@ -214,7 +251,8 @@ earth.rotation.y += 0.02;
 
 /* Universe rotation */
 
-stars.rotation.y += 0.0003;
+stars1.rotation.y += 0.0002;
+stars2.rotation.y += 0.0005;
 
 
 
