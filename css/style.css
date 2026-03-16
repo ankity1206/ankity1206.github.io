@@ -220,19 +220,21 @@ font-size:14px;
 
 /* Table styling */
 
+/* Repo tables-----------------------------------------------------*/
 .repo-table{
 
 margin:auto;
 
 margin-top:50px;
-margin-left: 10px;
+margin-left: 0px;
+margin-right: auto;
 border-collapse:collapse;
 
 min-width:300px;
 
 background:rgba(0,0,0,0.6);
 
-backdrop-filter:blur(6px);
+backdrop-filter:blur(3px);
 
 color:white;
 
