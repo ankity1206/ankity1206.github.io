@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Procedural Space Engine</title>
+<style>
+body { margin:0; overflow:hidden; background:black; font-family:Arial; }
+#ui{
+position:absolute;top:10px;left:10px;color:white;
+background:rgba(0,0,0,0.6);padding:10px;border-radius:6px;
+}
+</style>
+</head>
+<body>
+<div id="ui">
+<b>Procedural Space Engine 🌌</b><br>
+WASD = Fly/Walk | Shift = Warp | Space = Jump / Land<br>
+Click = Mouse Look
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+
+// ====================
+// Scene & Camera
+// ====================
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000000);
+let renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// ====================
+// Player / Spaceship
+// ====================
+let player = new THREE.Object3D();
+scene.add(player);
+player.add(camera);
+
+let keys = {}, warp = false, onPlanet = false;
+
+// --------------------
+// Keyboard & Mouse
+// --------------------
+window.addEventListener("keydown", e => { keys[e.key]=true; if(e.key==="Shift") warp=true; if(e.key===" ") landOrJump(); });
+window.addEventListener("keyup", e => { keys[e.key]=false; if(e.key==="Shift") warp=false; });
+
+let yaw=0,pitch=0;
+document.body.addEventListener("click",()=>document.body.requestPointerLock());
+document.body.addEventListener("mousemove", e => {
+  if(document.pointerLockElement){
+    yaw -= e.movementX*0.002;
+    pitch -= e.movementY*0.002;
+    pitch = Math.max(-1.5,Math.min(1.5,pitch));
+    player.rotation.y = yaw; camera.rotation.x = pitch;
+  }
+});
+
+// ====================
+// Lights
+// ====================
+scene.add(new THREE.AmbientLight(0xffffff,0.6));
+let sun = new THREE.DirectionalLight(0xffffff,0.8);
+sun.position.set(1,1,0);
+scene.add(sun);
+
+// ====================
+// Procedural Universe
+// ====================
+let systems = {};
+const GRID = 5000;
+function createSystem(id, x, z){
+  let group = new THREE.Group();
+  // Star
+  let star = new THREE.Mesh(
+    new THREE.SphereGeometry(30,32,32),
+    new THREE.MeshBasicMaterial({color:new THREE.Color().setHSL(Math.random(),1,0.6)})
+  );
+  group.add(star);
+
+  // Planets
+  let planetCount = Math.floor(Math.random()*4)+1;
+  for(let i=0;i<planetCount;i++){
+    let planet = createPlanet(i);
+    group.add(planet);
+  }
+
+  group.position.set(x,0,z);
+  scene.add(group);
+  systems[id] = group;
+}
+
+// --------------------
+// Procedural Planet with Terrain & Atmosphere & Moons
+// --------------------
+function createPlanet(index){
+  let geo = new THREE.SphereGeometry(5+index*3,128,128);
+  // procedural terrain
+  for(let i=0;i<geo.vertices.length;i++){
+    geo.vertices[i].multiplyScalar(1 + Math.random()*0.05);
+  }
+  geo.computeVertexNormals();
+
+  let mat = new THREE.MeshStandardMaterial({color:new THREE.Color().setHSL(Math.random(),1,0.5),roughness:1,flatShading:false,metalness:0});
+  let planet = new THREE.Mesh(geo,mat);
+  planet.distance = 80 + index*50;
+  planet.angle = Math.random()*Math.PI*2;
+
+  // Atmosphere
+  let atmGeo = new THREE.SphereGeometry(geo.parameters.radius*1.05,64,64);
+  let atmMat = new THREE.MeshPhongMaterial({color:0x44aaff,transparent:true,opacity:0.25,side:THREE.DoubleSide});
+  let atm = new THREE.Mesh(atmGeo, atmMat);
+  planet.add(atm);
+
+  // Moons
+  planet.moons=[];
+  let moonCount = Math.floor(Math.random()*3);
+  for(let i=0;i<moonCount;i++){
+    let mGeo = new THREE.SphereGeometry(planet.geometry.parameters.radius*0.3,32,32);
+    let mMat = new THREE.MeshStandardMaterial({color:0x888888});
+    let moon = new THREE.Mesh(mGeo,mMat);
+    moon.distance = planet.geometry.parameters.radius*2 + i*5;
+    moon.angle = Math.random()*Math.PI*2;
+    planet.moons.push(moon);
+    planet.add(moon);
+  }
+  return planet;
+}
+
+// ====================
+// Black Hole Gravity
+// ====================
+let blackHole = new THREE.Mesh(new THREE.SphereGeometry(150,32,32),new THREE.MeshBasicMaterial({color:0x000000}));
+scene.add(blackHole);
+blackHole.position.set(0,0,-10000);
+function applyGravity(){
+  let bhPos = blackHole.position;
+  for(let id in systems){
+    let sys = systems[id];
+    sys.children.forEach(obj=>{
+      if(obj.distance){
+        let dx = bhPos.x - obj.getWorldPosition(new THREE.Vector3()).x;
+        let dz = bhPos.z - obj.getWorldPosition(new THREE.Vector3()).z;
+        let distSq = dx*dx + dz*dz + 0.01;
+        let force = 0.01 / distSq;
+        obj.position.x += dx*force;
+        obj.position.z += dz*force;
+      }
+    });
+  }
+}
+
+// ====================
+// Volumetric Nebulae
+// ====================
+let nebulaGeo = new THREE.SphereGeometry(10000,32,32);
+let nebulaMat = new THREE.ShaderMaterial({
+  transparent:true,
+  side:THREE.BackSide,
+  uniforms:{time:{value:0}},
+  vertexShader:`
+    varying vec3 vPos;
+    void main(){
+      vPos = position;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
+    }`,
+  fragmentShader:`
+    varying vec3 vPos;
+    uniform float time;
+    void main(){
+      float d = length(vPos)/10000.0;
+      float intensity = 0.2 + 0.3*sin(d*10.0+time);
+      gl_FragColor = vec4(0.6,0.2,1.0,intensity);
+    }`
+});
+let nebula = new THREE.Mesh(nebulaGeo,nebulaMat);
+scene.add(nebula);
+
+// ====================
+// Planet Landing
+// ====================
+function landOrJump(){
+  if(onPlanet){player.position.y+=50; onPlanet=false;}
+  else{
+    let nearest=null; let minDist=Infinity;
+    for(let id in systems){
+      let sys = systems[id];
+      sys.children.forEach(obj=>{
+        if(obj.distance){
+          let pos = obj.getWorldPosition(new THREE.Vector3());
+          let dist = player.position.distanceTo(pos);
+          if(dist<obj.distance+20){nearest=obj;minDist=dist;}
+        }
+      });
+    }
+    if(nearest){
+      let pos = nearest.getWorldPosition(new THREE.Vector3());
+      player.position.set(pos.x,pos.y+6,pos.z);
+      onPlanet=true;
+    }
+  }
+}
+
+// ====================
+// Universe Update
+// ====================
+function updateUniverse(){
+  let gx = Math.floor(player.position.x/GRID);
+  let gz = Math.floor(player.position.z/GRID);
+  for(let x=-2;x<=2;x++){
+    for(let z=-2;z<=2;z++){
+      let id = (gx+x)+"_"+(gz+z);
+      if(!systems[id]) createSystem(id,(gx+x)*GRID,(gz+z)*GRID);
+    }
+  }
+}
+
+// ====================
+// Animate Loop
+// ====================
+function animate(){
+  requestAnimationFrame(animate);
+  let speed = warp?300:20;
+
+  if(!onPlanet){
+    if(keys["w"]) player.translateZ(-speed);
+    if(keys["s"]) player.translateZ(speed);
+    if(keys["a"]) player.translateX(-speed);
+    if(keys["d"]) player.translateX(speed);
+  }
+
+  updateUniverse();
+
+  // planet orbits + moons
+  for(let id in systems){
+    let sys = systems[id];
+    sys.children.forEach(obj=>{
+      if(obj.distance){
+        obj.angle += 0.01;
+        obj.position.x = Math.cos(obj.angle)*obj.distance;
+        obj.position.z = Math.sin(obj.angle)*obj.distance;
+        if(obj.moons){
+          obj.moons.forEach(m=>{
+            m.angle += 0.02;
+            m.position.x = Math.cos(m.angle)*m.distance;
+            m.position.z = Math.sin(m.angle)*m.distance;
+          });
+        }
+      }
+    });
+  }
+
+  applyGravity();
+
+  // nebula animation
+  nebulaMat.uniforms.time.value += 0.01;
+
+  renderer.render(scene,camera);
+}
+animate();
+
+// ====================
+// Resize
+// ====================
+window.addEventListener("resize",()=>{
+  camera.aspect=window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth,window.innerHeight);
+});
+
+</script>
+</body>
+</html>
