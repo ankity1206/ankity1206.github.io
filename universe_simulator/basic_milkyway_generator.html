@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Milky Way Simulator</title>
+
+<style>
+body{
+margin:0;
+overflow:hidden;
+background:black;
+font-family:Arial;
+}
+
+#ui{
+position:absolute;
+top:10px;
+left:10px;
+color:white;
+background:rgba(0,0,0,0.6);
+padding:10px;
+border-radius:6px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="ui">
+<b>Milky Way Simulator 🌌</b><br>
+WASD = Fly<br>
+Shift = Warp<br>
+Click = Mouse Look
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+
+let scene = new THREE.Scene()
+
+let camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+2000000
+)
+
+let renderer = new THREE.WebGLRenderer({antialias:false})
+
+renderer.setSize(window.innerWidth,window.innerHeight)
+
+document.body.appendChild(renderer.domElement)
+
+camera.position.z=2000
+
+/* ---------------------
+MILKY WAY GENERATION
+--------------------- */
+
+const STAR_COUNT = 2000000
+const ARM_COUNT = 4
+
+let geometry = new THREE.BufferGeometry()
+
+let positions = new Float32Array(STAR_COUNT*3)
+let colors = new Float32Array(STAR_COUNT*3)
+
+for(let i=0;i<STAR_COUNT;i++){
+
+let radius = Math.random()*60000
+let arm = i % ARM_COUNT
+
+let armAngle = arm*(Math.PI*2/ARM_COUNT)
+
+let spin = radius*0.0004
+
+let angle = armAngle + spin
+
+let randomOffset = (Math.random()-0.5)*2000
+
+let x = Math.cos(angle)*radius + randomOffset
+let z = Math.sin(angle)*radius + randomOffset
+
+let y = (Math.random()-0.5)*1500
+
+positions[i*3] = x
+positions[i*3+1] = y
+positions[i*3+2] = z
+
+/* star color distribution */
+
+let color = new THREE.Color()
+
+let t = Math.random()
+
+if(t < 0.1){
+color.setRGB(0.6,0.8,1.0) // blue stars
+}
+else if(t < 0.6){
+color.setRGB(1.0,1.0,0.9) // yellow stars
+}
+else{
+color.setRGB(1.0,0.7,0.5) // red giants
+}
+
+colors[i*3] = color.r
+colors[i*3+1] = color.g
+colors[i*3+2] = color.b
+
+}
+
+geometry.setAttribute(
+"position",
+new THREE.BufferAttribute(positions,3)
+)
+
+geometry.setAttribute(
+"color",
+new THREE.BufferAttribute(colors,3)
+)
+
+/* ---------------------
+STAR SHADER
+--------------------- */
+
+let material = new THREE.ShaderMaterial({
+
+vertexColors:true,
+
+vertexShader:`
+
+attribute vec3 color;
+varying vec3 vColor;
+
+void main(){
+
+vColor=color;
+
+vec4 mvPosition = modelViewMatrix * vec4(position,1.0);
+
+gl_PointSize = 3.0 * (4000.0 / -mvPosition.z);
+
+gl_Position = projectionMatrix * mvPosition;
+
+}
+`,
+
+fragmentShader:`
+
+varying vec3 vColor;
+
+void main(){
+
+float d = length(gl_PointCoord-vec2(0.5));
+
+if(d>0.5) discard;
+
+gl_FragColor = vec4(vColor,1.0);
+
+}
+`
+
+})
+
+let stars = new THREE.Points(geometry,material)
+
+scene.add(stars)
+
+/* ---------------------
+GALACTIC CORE
+--------------------- */
+
+let core = new THREE.Mesh(
+new THREE.SphereGeometry(500,32,32),
+new THREE.MeshBasicMaterial({color:0x000000})
+)
+
+scene.add(core)
+
+/* glow */
+
+let glow = new THREE.Mesh(
+new THREE.SphereGeometry(2000,32,32),
+new THREE.MeshBasicMaterial({
+color:0xffaa00,
+transparent:true,
+opacity:0.15
+})
+)
+
+scene.add(glow)
+
+/* ---------------------
+SPACESHIP
+--------------------- */
+
+let ship = new THREE.Object3D()
+
+scene.add(ship)
+
+ship.add(camera)
+
+let keys={}
+let warp=false
+
+window.addEventListener("keydown",e=>{
+keys[e.key]=true
+if(e.key==="Shift") warp=true
+})
+
+window.addEventListener("keyup",e=>{
+keys[e.key]=false
+if(e.key==="Shift") warp=false
+})
+
+/* ---------------------
+MOUSE LOOK
+--------------------- */
+
+let yaw=0
+let pitch=0
+
+document.body.addEventListener("click",()=>{
+document.body.requestPointerLock()
+})
+
+document.body.addEventListener("mousemove",e=>{
+
+if(document.pointerLockElement){
+
+yaw -= e.movementX*0.002
+pitch -= e.movementY*0.002
+
+pitch = Math.max(-1.5,Math.min(1.5,pitch))
+
+ship.rotation.y = yaw
+camera.rotation.x = pitch
+
+}
+
+})
+
+/* ---------------------
+ANIMATION
+--------------------- */
+
+function animate(){
+
+requestAnimationFrame(animate)
+
+let speed = warp ? 800 : 40
+
+if(keys["w"]) ship.translateZ(-speed)
+if(keys["s"]) ship.translateZ(speed)
+if(keys["a"]) ship.translateX(-speed)
+if(keys["d"]) ship.translateX(speed)
+
+renderer.render(scene,camera)
+
+}
+
+animate()
+
+window.addEventListener("resize",()=>{
+
+camera.aspect = window.innerWidth/window.innerHeight
+camera.updateProjectionMatrix()
+
+renderer.setSize(window.innerWidth,window.innerHeight)
+
+})
+
+</script>
+
+</body>
+</html>
