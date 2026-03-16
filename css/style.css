@@ -220,8 +220,8 @@ font-size:14px;
 
 /* Table styling */
 
-/* Repo tables-----------------------------------------------------*/
-.repo-table{
+/* tables from main page-----------------------------------------------------*/
+.home-table{
 
 /*margin:auto;
 */
@@ -238,6 +238,56 @@ backdrop-filter:blur(3px);
 
 color:white;
 
+}
+
+
+.home-table th,
+.home-table td{
+
+padding:12px 20px;
+
+border-bottom:1px solid rgba(255,255,255,0.2);
+
+}
+
+
+.home-table th{
+
+background:rgba(255,255,255,0.1);
+
+}
+
+
+.home-table a{
+
+color:#66ccff;
+
+text-decoration:none;
+
+}
+
+
+.home-table a:hover{
+
+text-shadow:0 0 10px #66ccff;
+
+}
+
+
+/* tables from Some repo page-----------------------------------------------------*/
+.repo-table{
+
+margin:auto;
+margin-top:50px;
+/*
+margin-left: 0px;
+margin-right: auto;
+*/
+border-collapse:collapse;
+min-width:300px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(9px);
+color:white;
 }
 
 
