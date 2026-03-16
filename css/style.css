@@ -371,15 +371,22 @@ background:#888;
 /* Style links inside the dropdown */
 .dropdown-content a {
   color: white;
-  padding: 12px 16px;
+  padding: 12px 16px; /* Adjust padding as needed */
   text-decoration: none;
-  display: block;
+  
+  /* FIX: Make the link fill the entire cell */
+  display: block; 
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't push it out */
+  
   text-align: left;
+  margin: 0; /* Remove any inherited margins */
 }
 
-/* Change color on hover */
+/* Ensure the hover effect covers the whole area */
 .dropdown-content a:hover {
-  background-color: #555;
+  background-color: #555; 
+  color: #fff;
 }
 
 /* Show the menu when hovering over the container */
