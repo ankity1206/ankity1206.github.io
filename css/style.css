@@ -222,7 +222,8 @@ font-size:14px;
 
 /* tables from main page-----------------------------------------------------*/
 .home-table{
-
+ float: left;
+  clear: both;
 /*margin:auto;
 */
 margin-top:50px;
