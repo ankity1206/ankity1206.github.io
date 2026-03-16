@@ -223,8 +223,8 @@ font-size:14px;
 /* Repo tables-----------------------------------------------------*/
 .repo-table{
 
-margin:auto;
-
+/*margin:auto;
+*/
 margin-top:50px;
 margin-left: 0px;
 margin-right: auto;
