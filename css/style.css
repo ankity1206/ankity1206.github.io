@@ -222,13 +222,13 @@ font-size:14px;
 
 /* tables from main page-----------------------------------------------------*/
 .home-table{
- float: left;
-  clear: both;
+ display: table !important;
+  float: none; 
 /*margin:auto;
 */
 margin-top:50px;
-margin-left: 0px;
-margin-right: auto;
+margin-left: 0 !important;
+margin-right: auto !important;
 border-collapse:collapse;
 
 min-width:300px;
