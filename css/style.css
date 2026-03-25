@@ -1,4 +1,10 @@
-/* ------------------ GLOBAL ------------------ */
+/* ------------------ GLOBAL RESET ------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body{
 margin:0;
@@ -6,6 +12,8 @@ font-family:Arial, sans-serif;
 background:#000;
 color:white;
 text-align:center;
+
+/* keep as safety, but not relied upon */
 overflow-x:hidden;
 }
 
@@ -65,6 +73,9 @@ backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(255,255,255,0.1);
 
 z-index:1000;
+
+/* 🔥 critical safety */
+overflow-x:hidden;
 }
 
 /* brand */
@@ -81,12 +92,16 @@ display:flex;
 flex-wrap:wrap;
 gap:15px;
 align-items:center;
+
+/* prevent expansion */
+max-width:100%;
 }
 
 .nav-right a{
 color:white;
 text-decoration:none;
 transition:0.3s;
+white-space:nowrap; /* prevents weird wrapping overflow */
 }
 
 .nav-right a:hover{
@@ -109,7 +124,9 @@ left:0;
 background:rgba(0,0,0,0.8);
 border-radius:10px;
 overflow:hidden;
-min-width:200px;
+
+min-width:180px;
+max-width:90vw; /* 🔥 prevents overflow */
 }
 
 .dropdown-content a{
@@ -139,6 +156,7 @@ padding:30px;
 margin:30px auto;
 border-collapse:collapse;
 padding:20px;
+max-width:100%; /* 🔥 prevents table overflow */
 }
 
 .home-table td{
