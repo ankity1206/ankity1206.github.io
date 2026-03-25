@@ -1,125 +1,137 @@
-/* ===== RESET ===== */
+/* ===== GLOBAL RESET ===== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
+/* ===== BODY ===== */
 body{
-  font-family:Arial, sans-serif;
-  background:#000;
-  color:white;
-  overflow-x:hidden;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
 }
 
 /* ===== BACKGROUND ===== */
 canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  z-index:-1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* ===== NAVBAR ===== */
 .navbar{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  padding:15px 30px;
+  padding: 15px 30px;
 
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
 
-  z-index:1000;
+  z-index: 1000;
 }
 
 .brand{
-  font-weight:bold;
-  letter-spacing:1px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
+/* ===== NAV LINKS ===== */
 .nav-links{
-  display:flex;
-  gap:20px;
+  display: flex;
+  gap: 20px;
 }
 
 .nav-links a{
-  color:white;
-  text-decoration:none;
-  transition:0.3s;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .nav-links a:hover{
-  color:#00ffff;
+  color: #00ffff;
+}
+
+.nav-links .active{
+  color: #00ffff;
+  font-weight: bold;
 }
 
 /* ===== CONTENT ===== */
 .container{
-  margin-top:100px;
-  text-align:center;
+  text-align: center;
+
+  /* 👇 JS will overwrite this dynamically */
+  margin-top: 80px;
 }
 
+/* ===== CARD ===== */
 .card{
-  margin:40px auto;
-  max-width:700px;
-  padding:30px;
+  margin: 40px auto;
+  max-width: 700px;
+  padding: 30px;
 
-  background:rgba(255,255,255,0.05);
-  border-radius:15px;
-  backdrop-filter:blur(10px);
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
 }
 
 /* ===== TABLE ===== */
 .table{
-  margin:20px auto;
-  border-collapse:collapse;
+  margin: 20px auto;
+  border-collapse: collapse;
+  max-width: 100%;
 }
 
 .table td{
-  padding:10px 20px;
-  border-bottom:1px solid rgba(255,255,255,0.1);
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .table a{
-  color:#00ffff;
+  color: #00ffff;
 }
 
 /* ===== BUTTON ===== */
 button{
-  padding:12px 20px;
-  margin-top:20px;
-  border:none;
-  border-radius:10px;
-  background:#111;
-  color:white;
-  cursor:pointer;
+  padding: 12px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  background: #111;
+  color: white;
+  cursor: pointer;
 }
 
 button:hover{
-  background:#222;
+  background: #222;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width:700px){
 
 .navbar{
-  flex-direction:column;
-  align-items:flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .nav-links{
-  flex-direction:column;
-  margin-top:10px;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 }
