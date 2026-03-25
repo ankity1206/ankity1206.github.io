@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Social Preview -->
     <meta property="og:image" content="https://github.com/ankity1206/ankity1206.github.io/blob/master/images/preview.jpeg?raw=true">
     <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -41,7 +40,7 @@
 
 </nav>
 
-<!-- Main Content -->
+<!-- Content -->
 <div class="content">
     <h1>Ankit Yadav</h1>
     <p>Just trying HTML commands.</p>
@@ -62,18 +61,49 @@
     </tbody>
 </table>
 
-<!-- Upload Section -->
-<div class="upload-container">
-    <h2>Upload Your Files</h2>
+<!-- Floating Upload Button -->
+<button id="uploadBtn">⬆ Upload</button>
 
-    <iframe 
-        data-tally-src="https://tally.so/r/9qOQ4G"
-        loading="lazy">
-    </iframe>
+<!-- Upload Modal -->
+<div id="uploadModal" class="modal">
+
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <h2>Upload Your Files</h2>
+
+        <iframe 
+            data-tally-src="https://tally.so/r/9qOQ4G"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
 </div>
 
-<!-- Tally Script -->
+<!-- Tally -->
 <script src="https://tally.so/widgets/embed.js"></script>
+
+<!-- Modal Script -->
+<script>
+const modal = document.getElementById("uploadModal");
+const btn = document.getElementById("uploadBtn");
+const closeBtn = document.querySelector(".close");
+
+btn.onclick = () => {
+    modal.style.display = "flex";
+};
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+};
+
+window.onclick = (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+};
+</script>
 
 <!-- Three.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
