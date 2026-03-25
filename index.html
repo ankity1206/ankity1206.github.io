@@ -7,19 +7,13 @@
     <title>Ankit Yadav</title>
 
     <link rel="stylesheet" href="css/style.css">
-
-    <meta property="og:image" content="https://github.com/ankity1206/ankity1206.github.io/blob/master/images/preview.jpeg?raw=true">
-    <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body>
 
-<!-- Background -->
 <div class="stars"></div>
 
-<!-- Navbar -->
 <nav class="navbar">
-
     <div class="nav-left">
         <a href="/">Ankit Yadav</a>
     </div>
@@ -27,44 +21,18 @@
     <div class="nav-right">
         <a href="/">Home</a>
         <a href="SomeRepo/">Some Repos</a>
-
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Simulators ▾</a>
-            <div class="dropdown-content">
-                <a href="universe_simulator/basic_universe_simulator.html">Basic Universe Simulator</a>
-                <a href="universe_simulator/simplest_universe_simulator.html">Universe Simulator</a>
-                <a href="universe_simulator/procedural_universe_engine_3.html">Universe Engine 3.0</a>
-            </div>
-        </div>
     </div>
-
 </nav>
 
-<!-- Content -->
 <div class="content">
     <h1>Ankit Yadav</h1>
-    <p>Just trying HTML commands.</p>
+    <p>Drag & Drop Upload Enabled 🚀</p>
 </div>
 
-<!-- Table -->
-<table class="home-table">
-    <caption>Frequently used repositories</caption>
-    <tbody>
-        <tr>
-            <td>MTech Material</td>
-            <td><a href="https://github.com/ankity1206/from_mtech" target="_blank">Open</a></td>
-        </tr>
-        <tr>
-            <td>XV6 Repository</td>
-            <td><a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a></td>
-        </tr>
-    </tbody>
-</table>
-
-<!-- Floating Upload Button -->
+<!-- Upload Button -->
 <button id="uploadBtn">⬆ Upload</button>
 
-<!-- Upload Modal -->
+<!-- Modal -->
 <div id="uploadModal" class="modal">
 
     <div class="modal-content">
@@ -72,6 +40,14 @@
 
         <h2>Upload Your Files</h2>
 
+        <!-- Drag & Drop Area -->
+        <div id="drop-zone">
+            <p>Drag & drop files here</p>
+            <p>or click to select</p>
+            <input type="file" id="fileInput" multiple>
+        </div>
+
+        <!-- Tally fallback -->
         <iframe 
             data-tally-src="https://tally.so/r/9qOQ4G"
             loading="lazy">
@@ -81,28 +57,55 @@
 
 </div>
 
-<!-- Tally -->
 <script src="https://tally.so/widgets/embed.js"></script>
 
-<!-- Modal Script -->
 <script>
 const modal = document.getElementById("uploadModal");
 const btn = document.getElementById("uploadBtn");
 const closeBtn = document.querySelector(".close");
 
-btn.onclick = () => {
-    modal.style.display = "flex";
-};
+const dropZone = document.getElementById("drop-zone");
+const fileInput = document.getElementById("fileInput");
 
-closeBtn.onclick = () => {
-    modal.style.display = "none";
-};
+/* Modal */
+btn.onclick = () => modal.style.display = "flex";
+closeBtn.onclick = () => modal.style.display = "none";
 
 window.onclick = (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
+    if (e.target === modal) modal.style.display = "none";
 };
+
+/* Drag Events */
+dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.classList.add("dragover");
+});
+
+dropZone.addEventListener("dragleave", () => {
+    dropZone.classList.remove("dragover");
+});
+
+dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("dragover");
+
+    const files = e.dataTransfer.files;
+    handleFiles(files);
+});
+
+/* Click to upload */
+dropZone.onclick = () => fileInput.click();
+
+fileInput.addEventListener("change", () => {
+    handleFiles(fileInput.files);
+});
+
+/* File handler (demo only) */
+function handleFiles(files) {
+    alert(files.length + " file(s) selected");
+    // NOTE: Tally iframe cannot be programmatically filled
+    // This is just UI layer unless you build backend
+}
 </script>
 
 <!-- Three.js -->
