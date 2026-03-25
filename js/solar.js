@@ -5,8 +5,7 @@ const ctx = canvas.getContext("2d");
 function resize(){
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-
-  initStars(); // 🔥 regenerate stars properly
+  initStars();
 }
 
 /* ================= STARS ================= */
@@ -30,19 +29,26 @@ function adjustLayout() {
   const container = document.querySelector(".container");
 
   if (navbar && container) {
-    const navHeight = navbar.offsetHeight;
-    container.style.marginTop = navHeight + "px";
+    container.style.marginTop = navbar.offsetHeight + "px";
   }
 }
 
 /* ================= EVENTS ================= */
-window.addEventListener("resize", () => {
+document.addEventListener("DOMContentLoaded", () => {
   resize();
   adjustLayout();
+
+  /* 🔥 observe navbar size changes */
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    const observer = new ResizeObserver(() => {
+      adjustLayout();
+    });
+    observer.observe(navbar);
+  }
 });
 
-/* DOM ready is safer than load */
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("resize", () => {
   resize();
   adjustLayout();
 });
