@@ -3,30 +3,10 @@
 body{
 margin:0;
 font-family:Arial, sans-serif;
-background:#000000;
+background:#000;
 color:white;
 text-align:center;
-
 overflow-x:hidden;
-overflow-y:auto;
-
-padding-top:70px;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-/* ------------------ CANVAS ------------------ */
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1;
-pointer-events:none;
 }
 
 /* ------------------ STARS ------------------ */
@@ -37,23 +17,12 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-
 background:
 radial-gradient(white 1px, transparent 1px),
 radial-gradient(white 1px, transparent 1px),
 radial-gradient(white 2px, transparent 2px);
-
-background-size:
-80px 80px,
-120px 120px,
-200px 200px;
-
-background-position:
-0 0,
-40px 60px,
-130px 70px;
-
-animation:starsTwinkle 6s ease-in-out infinite;
+background-size:80px 80px,120px 120px,200px 200px;
+animation:starsTwinkle 6s infinite;
 z-index:-2;
 }
 
@@ -63,13 +32,26 @@ z-index:-2;
 100%{opacity:0.6;}
 }
 
+/* ------------------ GLASS BASE ------------------ */
+
+.glass-card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+-webkit-backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,0.1);
+border-radius:16px;
+
+box-shadow:
+0 4px 30px rgba(0,0,0,0.5),
+inset 0 0 10px rgba(255,255,255,0.05);
+}
+
 /* ------------------ NAVBAR ------------------ */
 
 .navbar{
-position:fixed;
+position:sticky;
 top:0;
-left:0;
-width:100%;
 
 display:flex;
 justify-content:space-between;
@@ -77,32 +59,31 @@ align-items:center;
 
 padding:12px 20px;
 
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(6px);
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+
+border-bottom:1px solid rgba(255,255,255,0.1);
 
 z-index:100;
-box-sizing:border-box;
-overflow:hidden;
 }
 
-.nav-left{
-font-size:18px;
+/* brand */
+.brand{
+text-decoration:none;
+color:white;
 font-weight:bold;
 letter-spacing:1px;
 }
 
+/* nav links */
 .nav-right{
 display:flex;
-align-items:center;
 gap:15px;
-flex-wrap:nowrap;
-overflow-x:auto;
 }
 
 .nav-right a{
-text-decoration:none;
 color:white;
-font-size:15px;
+text-decoration:none;
 transition:0.3s;
 }
 
@@ -120,21 +101,22 @@ position:relative;
 .dropdown-content{
 display:none;
 position:absolute;
-background:#333;
-min-width:160px;
-border-radius:4px;
-left:0;
+
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+
+border-radius:10px;
+overflow:hidden;
+min-width:180px;
 }
 
 .dropdown-content a{
 display:block;
-padding:12px;
-color:white;
-text-decoration:none;
+padding:10px;
 }
 
 .dropdown-content a:hover{
-background:#555;
+background:rgba(255,255,255,0.1);
 }
 
 .dropdown:hover .dropdown-content{
@@ -144,43 +126,47 @@ display:block;
 /* ------------------ CONTENT ------------------ */
 
 .content{
-margin-top:80px;
+margin:40px auto;
 max-width:700px;
-margin:auto;
-padding:20px;
+padding:30px;
 }
 
 /* ------------------ TABLE ------------------ */
 
 .home-table{
-margin:50px auto;
+margin:30px auto;
 border-collapse:collapse;
-background:rgba(0,0,0,0.6);
+padding:20px;
 }
 
 .home-table td{
 padding:12px 20px;
-border-bottom:1px solid rgba(255,255,255,0.2);
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.home-table a{
+color:#66ccff;
 }
 
 /* ------------------ BUTTON ------------------ */
 
-.tally-section{
-margin-top:40px;
-}
-
 .tally-btn{
 padding:12px 24px;
-background:#111;
-color:white;
+
+background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.2);
-border-radius:8px;
+
+border-radius:10px;
+color:white;
+
 cursor:pointer;
+transition:0.3s;
 }
 
 .tally-btn:hover{
-background:#222;
+background:rgba(255,255,255,0.15);
 color:#66ccff;
+box-shadow:0 0 15px #66ccff;
 }
 
 /* ------------------ MOBILE ------------------ */
@@ -194,7 +180,6 @@ align-items:flex-start;
 
 .nav-right{
 flex-direction:column;
-width:100%;
 }
 
 .dropdown-content{
