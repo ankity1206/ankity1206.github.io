@@ -32,16 +32,13 @@ z-index:-2;
 100%{opacity:0.6;}
 }
 
-/* ------------------ GLASS BASE ------------------ */
+/* ------------------ GLASS ------------------ */
 
 .glass-card{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(12px);
--webkit-backdrop-filter:blur(12px);
-
 border:1px solid rgba(255,255,255,0.1);
 border-radius:16px;
-
 box-shadow:
 0 4px 30px rgba(0,0,0,0.5),
 inset 0 0 10px rgba(255,255,255,0.05);
@@ -52,19 +49,22 @@ inset 0 0 10px rgba(255,255,255,0.05);
 .navbar{
 position:sticky;
 top:0;
+left:0;
+width:100%;
 
 display:flex;
+flex-wrap:wrap;
 justify-content:space-between;
 align-items:center;
 
 padding:12px 20px;
 
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,0.5);
 backdrop-filter:blur(10px);
 
 border-bottom:1px solid rgba(255,255,255,0.1);
 
-z-index:100;
+z-index:1000;
 }
 
 /* brand */
@@ -78,7 +78,9 @@ letter-spacing:1px;
 /* nav links */
 .nav-right{
 display:flex;
+flex-wrap:wrap;
 gap:15px;
+align-items:center;
 }
 
 .nav-right a{
@@ -101,13 +103,13 @@ position:relative;
 .dropdown-content{
 display:none;
 position:absolute;
+top:100%;
+left:0;
 
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-
+background:rgba(0,0,0,0.8);
 border-radius:10px;
 overflow:hidden;
-min-width:180px;
+min-width:200px;
 }
 
 .dropdown-content a{
@@ -152,13 +154,10 @@ color:#66ccff;
 
 .tally-btn{
 padding:12px 24px;
-
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.2);
-
 border-radius:10px;
 color:white;
-
 cursor:pointer;
 transition:0.3s;
 }
@@ -180,10 +179,15 @@ align-items:flex-start;
 
 .nav-right{
 flex-direction:column;
+width:100%;
+}
+
+.nav-right a{
+padding:8px 0;
 }
 
 .dropdown-content{
-position:static;
+position:relative;
 width:100%;
 }
 
