@@ -17,7 +17,6 @@ canvas {
     pointer-events: none;
 }
 
-/* Star layer */
 .stars {
     position: fixed;
     width: 100%;
@@ -26,19 +25,9 @@ canvas {
 
     background:
         radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 2px, transparent 2px);
+        radial-gradient(white 1px, transparent 1px);
 
-    background-size: 80px 80px, 120px 120px, 200px 200px;
-    background-position: 0 0, 40px 60px, 130px 70px;
-
-    animation: starsTwinkle 6s ease-in-out infinite;
-}
-
-@keyframes starsTwinkle {
-    0% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.05); }
-    100% { opacity: 0.5; transform: scale(1); }
+    background-size: 100px 100px;
 }
 
 /* ===== NAVBAR ===== */
@@ -46,141 +35,89 @@ canvas {
     position: fixed;
     top: 0;
     width: 100%;
-
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
     padding: 12px 20px;
-
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(6px);
-
-    z-index: 100;
 }
 
 .nav-left a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     font-weight: bold;
-}
-
-.nav-right {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.nav-right a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-}
-
-.nav-right a:hover {
-    color: #66ccff;
-    text-shadow: 0 0 10px #66ccff;
-}
-
-/* ===== DROPDOWN ===== */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: #333;
-    min-width: 160px;
-    border-radius: 6px;
-    right: 0;
-}
-
-.dropdown-content a {
-    display: block;
-    padding: 10px;
-    text-align: left;
-    color: white;
-}
-
-.dropdown-content a:hover {
-    background: #555;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 
 /* ===== CONTENT ===== */
 .content {
-    margin-top: 140px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-
-    animation: fadeIn 1s ease-in;
+    margin-top: 120px;
 }
 
-h1 {
-    font-size: 2.5rem;
+/* ===== BUTTON ===== */
+#uploadBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    padding: 12px 18px;
+    border-radius: 25px;
+
+    background: #66ccff;
+    color: black;
+
+    cursor: pointer;
+    z-index: 200;
 }
 
-p {
-    color: #ccc;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== TABLE ===== */
-.home-table {
-    margin: 50px auto;
-    border-collapse: collapse;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(5px);
-}
-
-.home-table td {
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-.home-table a {
-    color: #66ccff;
-    text-decoration: none;
-}
-
-/* ===== UPLOAD ===== */
-.upload-container {
-    position: relative;
-    z-index: 10;
-
-    max-width: 700px;
-    margin: 60px auto;
-    padding: 25px;
-
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(12px);
-
-    border-radius: 12px;
-}
-
-.upload-container iframe {
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 300;
     width: 100%;
-    min-height: 600px;
-    border: none;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+
+    justify-content: center;
+    align-items: center;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 700px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.modal-content {
+    background: rgba(0,0,0,0.9);
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+}
 
-    .nav-right a {
-        margin: 5px 10px 0 0;
-    }
+.close {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ===== DRAG & DROP ===== */
+#drop-zone {
+    border: 2px dashed #66ccff;
+    padding: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#drop-zone.dragover {
+    background: rgba(102,204,255,0.2);
+    border-color: #fff;
+}
+
+#drop-zone input {
+    display: none;
+}
+
+/* ===== IFRAME ===== */
+.modal-content iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
 }
