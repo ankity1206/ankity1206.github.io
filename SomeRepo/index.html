@@ -16,16 +16,24 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="brand">
-    <a href="../" style="text-decoration:none; color:inherit;">
-      Ankit Yadav
-    </a>
-  </div>
+  <div class="brand">Ankit Yadav</div>
 
   <div class="nav-links">
-    <a href="../">Home</a>
-    <a class="active">Some Repos</a>
-    <a href="#">Simulators</a>
+    <a href="../index.html">Home</a>
+	<a href="#">Some Repos</a>
+	<!--------
+    		<div class="dropdown">
+      			<button class="dropbtn" onclick="toggleDropdown(event)">
+        		Simulators ▾
+      			</button>
+
+      			<div class="dropdown-content" id="dropdownMenu">
+        			<a href="#">Simulator 1</a>
+        			<a href="#">Simulator 2</a>
+        			<a href="#">Simulator 3</a>
+      			</div>
+    		</div>
+	----->
   </div>
 </nav>
 
@@ -37,29 +45,25 @@
   </div>
 
   <!-- My Repositories -->
-  <table class="table">
+  <div class="table-container">
+
+  <!-- LEFT TABLE -->
+  <table class="table table-left">
     <caption>Some Repositories</caption>
-    <tbody>
-      <tr>
-        <td>Some Linux Commands</td>
-        <td>
-          <a href="https://github.com/ankity1206/some-commands-for-ubuntu-20.04" target="_blank">Open</a>
-        </td>
-      </tr>
-      <tr>
-        <td>MTech Material</td>
-        <td>
-          <a href="https://github.com/ankity1206/from_mtech" target="_blank">Open</a>
-        </td>
-      </tr>
-    </tbody>
+    <tr>
+      <td>Linux Commands</td>
+      <td><a href="#">Open</a></td>
+    </tr>
+    <tr>
+      <td>MTech Material</td>
+      <td><a href="#">Open</a></td>
+    </tr>
   </table>
 
-  <!-- Useful Links -->
-  <table class="table">
+  <!-- RIGHT TABLE -->
+  <table class="table table-right">
     <caption>Useful Links</caption>
-    <tbody>
-      <tr>
+    <tr>
         <td>XV6 Repository</td>
         <td>
           <a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a>
@@ -82,14 +86,13 @@
         <td>
           <a href="https://github.com/ElenaKirshanova/ntru_with_sieving" target="_blank">Open</a>
         </td>
-      </tr>
-    </tbody>
-  </table>
+      </tr>  </table>
 
+</div>
 </div>
 
 <!-- Scripts -->
-<script src="../js/background.js"></script>
+<script src="../js/solar.js"></script>
 
 </body>
 </html>
