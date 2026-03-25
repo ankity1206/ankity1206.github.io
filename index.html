@@ -2,51 +2,42 @@
 <html lang="en">
 
 <head>
-<title>Ankit Yadav</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Yadav</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
 
-<link rel="stylesheet" href="css/style.css">
-
-<meta property="og:image" content="https://github.com/ankity1206/ankity1206.github.io/blob/master/images/preview.jpeg?raw=true">
-<meta name="twitter:card" content="summary_large_image">
-
-<script src="https://tally.so/widgets/embed.js"></script>
+  <!-- Tally -->
+  <script src="https://tally.so/widgets/embed.js"></script>
 </head>
 
 <body>
 
-<div class="stars"></div>
+<canvas id="bg"></canvas>
 
+<!-- NAVBAR -->
 <nav class="navbar">
-  <div class="nav-left">
-    <a href="#" class="brand">Ankit Yadav</a>
-  </div>
+  <div class="brand">Ankit Yadav</div>
 
-  <div class="nav-right">
+  <div class="nav-links">
     <a href="#">Home</a>
     <a href="SomeRepo/">Some Repos</a>
-
-    <div class="dropdown">
-      <a href="#" class="dropbtn">Simulators ▾</a>
-      <div class="dropdown-content">
-        <a href="universe_simulator/basic_universe_simulator.html">Basic Universe Simulator</a>
-        <a href="universe_simulator/simplest_universe_simulator.html">Universe Simulator</a>
-        <a href="universe_simulator/procedural_universe_engine_3.html">Universe Engine 3.0</a>
-      </div>
-    </div>
+    <!----
+    <a href="#">Simulators</a>
+    ---->
   </div>
 </nav>
 
-<div class="content glass-card">
-  <h1>Ankit Yadav</h1>
-  <p>Just trying HTML commands.</p>
-</div>
+<!-- CONTENT -->
+<div class="container">
 
-<table class="home-table glass-card">
-  <caption>Frequently used repositories</caption>
-  <tbody>
+  <div class="card">
+    <h1>Ankit Yadav</h1>
+    <p>Just trying HTML commands.</p>
+  </div>
+
+  <table class="table">
     <tr>
       <td>MTech Material</td>
       <td><a href="https://github.com/ankity1206/from_mtech" target="_blank">Open</a></td>
@@ -55,16 +46,14 @@
       <td>XV6 Repository</td>
       <td><a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a></td>
     </tr>
-  </tbody>
-</table>
+  </table>
 
-<div class="tally-section">
-  <button class="tally-btn" onclick="openTally()">Upload Files</button>
+  <button onclick="openTally()">Upload Files</button>
+
 </div>
 
-<script src="js/tally.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="js/solar.js"></script>
+<script src="js/tally.js"></script>
 
 </body>
 </html>
