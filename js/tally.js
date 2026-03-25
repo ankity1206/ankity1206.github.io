@@ -1,5 +1,3 @@
-// ================= TALLY POPUP =================
-
 function openTally() {
   if (typeof Tally !== "undefined") {
     Tally.openPopup('9qOQ4G', {
@@ -18,10 +16,7 @@ function openTally() {
   }
 }
 
-
-// ================= FUTURE EXTENSIONS =================
-
-// Example: keyboard shortcut (press "u")
+/* keyboard shortcut */
 document.addEventListener("keydown", function(e){
   if(e.key === "u"){
     openTally();
