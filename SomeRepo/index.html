@@ -1,125 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Some Repositories</title>
 
-<title>Some Repositories</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="../css/style.css">
-
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
-<div class="stars"></div>
+<!-- Background -->
+<canvas id="bg"></canvas>
 
-<!-- Navigation bar -->
-
+<!-- NAVBAR -->
 <nav class="navbar">
-
-<div class="nav-left">
-  <a href="../" style="text-decoration: none; color: inherit;">Ankit Yadav</a>
-</div>
-
-
-<div class="nav-right">
-
-<a href="../">Home</a>
-<a class="active">Some Repos</a>
-<div class="dropdown">
-    <a href="#" class="dropbtn">Simulators ▾</a>
-    <div class="dropdown-content">
-      <a href="../universe_simulator/basic_universe_simulator.html">Basic Universe Simulator</a>
-      <a href="../universe_simulator/simplest_universe_simulator.html">Universe Simulator</a>
-      <a href="../universe_simulator/procedural_universe_engine_3.html">Universe Engine 3.0</a>
-    </div>
+  <div class="brand">
+    <a href="../" style="text-decoration:none; color:inherit;">
+      Ankit Yadav
+    </a>
   </div>
-  <!----
-<a href="projects.html">Projects</a>
-<a href="contact.html">Contact</a>
----->
-</div>
 
+  <div class="nav-links">
+    <a href="../">Home</a>
+    <a class="active">Some Repos</a>
+    <a href="#">Simulators</a>
+  </div>
 </nav>
 
+<!-- CONTENT -->
+<div class="container">
 
-<div class="content">
+  <div class="card">
+    <h1>Repositories</h1>
+  </div>
 
-<h1>Repositories</h1>
-<!---  my Repositories ------------>
-<table class="repo-table">
-  <caption>Some Repositories</caption>
-  <!-----
-  <thead>
-  <tr>
-  <th>For</th>
-  <th>Link</th>
-  </tr>
-  </thead>
-  --->
-  <tbody>
-  <tr>
-  <td>Some Linux Commands</td>
-  <td>
-    <a href="https://github.com/ankity1206/some-commands-for-ubuntu-20.04" target="_blank">Open</a>
-  </td>
-  </tr>
-  <tr>
-  <td>MTech Material</td>
-  <td>
-    <a href="https://github.com/ankity1206/from_mtech" target="_blank">Open</a>
-  </td>
-  </tr>
-  </tbody>
-</table>
+  <!-- My Repositories -->
+  <table class="table">
+    <caption>Some Repositories</caption>
+    <tbody>
+      <tr>
+        <td>Some Linux Commands</td>
+        <td>
+          <a href="https://github.com/ankity1206/some-commands-for-ubuntu-20.04" target="_blank">Open</a>
+        </td>
+      </tr>
+      <tr>
+        <td>MTech Material</td>
+        <td>
+          <a href="https://github.com/ankity1206/from_mtech" target="_blank">Open</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<!-------- some usefull repositories --------->
-<table class="repo-table">
-  <caption>Useful Links</caption>
-  <!-----
-  <thead>
-  <tr>
-  <th>For</th>
-  <th>Link</th>
-  </tr>
-  </thead>
-  --->
-  <tbody>
-  <tr>
-    <td>XV6 Repository</td>
-    <td>
-    <a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a>
-    </td>
-  </tr>
-  <tr>
-    <td>Hands On Introduction to Machine Learning</td>
-    <td>
-    <a href="https://github.com/swansonk14/IntroML" target="_blank">Open</a>
-    </td>
-  </tr>
-  <tr>
-    <td>G6K for Lattice Based Schemes Cryptanalysis</td>
-    <td>
-    <a href="https://github.com/fplll/g6k" target="_blank">Open</a>
-    </td>
-  </tr>
-  <tr>
-    <td>For NTRU Cryptanalysis</td>
-    <td>
-    <a href="https://github.com/ElenaKirshanova/ntru_with_sieving" target="_blank">Open</a>
-    </td>
-  </tr>
-  </tbody>
-</table>
-  
+  <!-- Useful Links -->
+  <table class="table">
+    <caption>Useful Links</caption>
+    <tbody>
+      <tr>
+        <td>XV6 Repository</td>
+        <td>
+          <a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a>
+        </td>
+      </tr>
+      <tr>
+        <td>Hands On Introduction to Machine Learning</td>
+        <td>
+          <a href="https://github.com/swansonk14/IntroML" target="_blank">Open</a>
+        </td>
+      </tr>
+      <tr>
+        <td>G6K for Lattice Based Schemes Cryptanalysis</td>
+        <td>
+          <a href="https://github.com/fplll/g6k" target="_blank">Open</a>
+        </td>
+      </tr>
+      <tr>
+        <td>For NTRU Cryptanalysis</td>
+        <td>
+          <a href="https://github.com/ElenaKirshanova/ntru_with_sieving" target="_blank">Open</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="../js/solar.js"></script>
+<!-- Scripts -->
+<script src="../js/background.js"></script>
 
 </body>
-
 </html>
