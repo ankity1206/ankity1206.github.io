@@ -14,6 +14,7 @@
 
 <body>
 
+<!-- Background -->
 <canvas id="bg"></canvas>
 
 <!-- NAVBAR -->
@@ -22,10 +23,20 @@
 
   <div class="nav-links">
     <a href="#">Home</a>
-    <a href="SomeRepo/">Some Repos</a>
-    <!----
-    <a href="#">Simulators</a>
-    ---->
+	<a href="SomeRepo/index.html">Some Repos</a>
+	<!--------
+    		<div class="dropdown">
+      			<button class="dropbtn" onclick="toggleDropdown(event)">
+        		Simulators ▾
+      			</button>
+
+      			<div class="dropdown-content" id="dropdownMenu">
+        			<a href="#">Simulator 1</a>
+        			<a href="#">Simulator 2</a>
+        			<a href="#">Simulator 3</a>
+      			</div>
+    		</div>
+	----->
   </div>
 </nav>
 
@@ -37,8 +48,12 @@
     <p>Just trying HTML commands.</p>
   </div>
 
-  <table class="table">
-    <tr>
+<div class="table-container">
+
+  <!-- LEFT TABLE -->
+  <table class="table table-left">
+    <caption>Some Repositories</caption>
+       <tr>
       <td>MTech Material</td>
       <td><a href="https://github.com/ankity1206/from_mtech" target="_blank">Open</a></td>
     </tr>
@@ -46,7 +61,8 @@
       <td>XV6 Repository</td>
       <td><a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a></td>
     </tr>
-  </table>
+	</table>
+</div>
 
   <button onclick="openTally()">Upload Files</button>
 
