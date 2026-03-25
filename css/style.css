@@ -53,29 +53,78 @@ canvas{
 .nav-links{
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav-links a{
   color: white;
   text-decoration: none;
   transition: 0.3s;
+
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a:hover{
   color: #00ffff;
 }
 
-.nav-links .active{
+/* ===== DROPDOWN ===== */
+.dropdown{
+  position: relative;
+}
+
+.dropbtn{
+  background: none;
+  border: none;
+  color: white;
+  font: inherit;
+
+  cursor: pointer;
+
+  padding: 0;              /* remove default padding */
+  margin: 0;
+  line-height: normal;     /* fix vertical alignment */
+
+  display: flex;           /* align like links */
+  align-items: center;
+}
+
+.dropbtn:hover{
   color: #00ffff;
-  font-weight: bold;
+}
+
+.dropdown-content{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(10px);
+
+  border-radius: 10px;
+  min-width: 180px;
+
+  overflow: hidden;
+  z-index: 2000;
+}
+
+.dropdown-content a{
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover{
+  background: rgba(255,255,255,0.1);
 }
 
 /* ===== CONTENT ===== */
 .container{
   text-align: center;
-
-  /* fallback only (JS overrides) */
-  margin-top: 80px;
+  margin-top: 80px; /* fallback */
 }
 
 /* ===== CARD ===== */
@@ -89,29 +138,45 @@ canvas{
   backdrop-filter: blur(10px);
 }
 
-/* ===== TABLE ===== */
-.table{
-  margin: 20px auto;
-  border-collapse: collapse;
-  max-width: 100%;
+/* ===== TABLE WRAPPER ===== */
+.table-container{
+  display: flex;
+  justify-content: space-between; /* push left & right */
+  align-items: flex-start;
+
   width: 90%;
+  margin: 20px auto;
 }
 
+/* ===== TABLE BASE ===== */
+.table{
+  border-collapse: collapse;
+  width: auto;              /* 🔥 only take needed space */
+  min-width: 250px;         /* optional for readability */
+}
+
+/* LEFT TABLE */
+.table-left{
+  margin-right: auto;
+}
+
+/* RIGHT TABLE */
+.table-right{
+  margin-left: auto;
+}
+
+/* CELLS */
 .table td{
-  padding: 12px 10px;
+  padding: 12px 15px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   text-align: left;
 }
 
+/* LINKS */
 .table a{
   color: #00ffff;
   text-decoration: none;
 }
-
-.table a:hover{
-  text-decoration: underline;
-}
-
 /* ===== BUTTON ===== */
 button{
   padding: 12px 20px;
@@ -139,6 +204,11 @@ button:hover{
   flex-direction: column;
   gap: 10px;
   margin-top: 10px;
+}
+
+.dropdown-content{
+  position: relative;
+  width: 100%;
 }
 
 }
