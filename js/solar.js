@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   resize();
   adjustLayout();
 
-  /* 🔥 observe navbar size changes */
   const navbar = document.querySelector(".navbar");
   if (navbar) {
     const observer = new ResizeObserver(() => {
@@ -77,3 +76,21 @@ function animate(){
 }
 
 animate();
+
+/* ================= DROPDOWN ================= */
+function toggleDropdown(event) {
+  event.stopPropagation();
+
+  const dropdown = event.currentTarget.nextElementSibling;
+  if (dropdown) {
+    dropdown.classList.toggle("show");
+  }
+}
+
+/* close dropdown on outside click */
+window.addEventListener("click", function () {
+  document.querySelectorAll(".dropdown-content").forEach(drop => {
+    drop.classList.remove("show");
+  });
+});
+
