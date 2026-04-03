@@ -9,12 +9,20 @@
 
 /* ===== BODY ===== */
 body{
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: #000;
   color: white;
   overflow-x: hidden;
-}
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+		line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
+  padding-top: 80px; /* ⭐ replaces margin-top */
+}
 /* ===== BACKGROUND ===== */
 canvas{
   position: fixed;
@@ -38,11 +46,18 @@ canvas{
 
   padding: 15px 30px;
 
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,255,255,0.2);
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
 
   z-index: 1000;
+
+  transition: background 0.3s ease;  /* ⭐ smooth change */
+}
+
+.navbar.scrolled{
+  background: rgba(0,0,0,0.6);   /* slightly lighter */
+  backdrop-filter: blur(6px);    /* ⭐ subtle glass effect */
 }
 
 .brand{
@@ -135,7 +150,7 @@ canvas{
 /* ===== CONTENT ===== */
 .container{
   text-align: center;
-  margin-top: 80px; /* fallback */
+	flex: 1;
 }
 
 /* ===== CARD ===== */
@@ -151,43 +166,76 @@ canvas{
 
 /* ===== TABLE WRAPPER ===== */
 .table-container{
-  display: flex;
-  justify-content: space-between; /* push left & right */
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
 
-  width: 90%;
-  margin: 20px auto;
+  max-width: 900px;   /* ⭐ LIMIT total width */
+  margin: 40px auto;
 }
-
+/* force vertical on small screens */
+@media (max-width: 700px){
+  .table-container{
+    grid-template-columns: 1fr;
+  }
+}
 /* ===== TABLE BASE ===== */
 .table{
   border-collapse: collapse;
-  width: auto;              /* 🔥 only take needed space */
-  min-width: 250px;         /* optional for readability */
+
+  width: 100%;
+  max-width: 320px;
+  min-width: 250px;
+
+  margin: 0 auto;
+
+  background: transparent;     /* ✅ fully transparent */
+  backdrop-filter: none;       /* ✅ remove glass effect */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* ⭐ smooth */
 }
 
-/* LEFT TABLE */
-.table-left{
-  margin-right: auto;
+/* ===== HOVER EFFECT ===== */
+.table:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,255,255,0.15);
 }
 
-/* RIGHT TABLE */
-.table-right{
-  margin-left: auto;
+/* ===== CAPTION ===== */
+.table caption{
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #00ffff;
 }
 
-/* CELLS */
+/* ===== HEADER ===== */
+.table th{
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ===== CELLS ===== */
 .table td{
   padding: 12px 15px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
   text-align: left;
 }
 
-/* LINKS */
+/* ===== LINKS ===== */
 .table a{
   color: #00ffff;
   text-decoration: none;
 }
+
+.table a:hover{
+  text-decoration: underline;
+}
+.table tr:hover{
+  background: rgba(255,255,255,0.05);
+}
+
 /* ===== BUTTON ===== */
 button{
   padding: 12px 20px;
@@ -243,4 +291,69 @@ button:hover{
 /* smooth feel */
 .dropdown-content {
   transition: all 0.2s ease;
+}
+
+
+/* ===== FOOTER ===== */
+.footer{
+  margin-top: 60px;
+  padding: 30px 20px;
+
+  background: transparent;      /* ⭐ fully transparent */
+  backdrop-filter: none;        /* remove blur */
+  border-top: 1px solid rgba(0,255,255,0.2);
+	box-shadow: 0 -5px 15px rgba(0,255,255,0.1);
+}
+
+/* ===== CONTENT ===== */
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  flex-wrap: wrap;
+  gap: 20px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== LEFT ===== */
+.footer-left h3{
+  color: #00ffff;
+  margin-bottom: 5px;
+}
+
+/* ===== LINKS ===== */
+.footer-links,
+.footer-social{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer a{
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer a:hover{
+  color: #00ffff;
+}
+
+/* ===== BOTTOM ===== */
+.footer-bottom{
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (max-width:700px){
+  .footer-content{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
