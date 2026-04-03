@@ -94,7 +94,7 @@ canvas{
   color: #00ffff;
 }
 
-.dropdown-content{
+.dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
@@ -104,21 +104,31 @@ canvas{
   backdrop-filter: blur(10px);
 
   border-radius: 10px;
-  min-width: 180px;
+
+  width: max-content;          /* ✅ shrink to content */
+  max-width: 90vw;             /* ✅ never exceed screen */
+  white-space: nowrap;         /* ✅ prevent breaking */
 
   overflow: hidden;
   z-index: 2000;
 }
 
-.dropdown-content a{
+.dropdown-content a {
   display: block;
-  padding: 10px;
+  padding: 10px 15px;
   color: white;
   text-decoration: none;
+
+  white-space: nowrap; /* keep text in one line */
 }
 
 .dropdown-content a:hover{
   background: rgba(255,255,255,0.1);
+}
+
+.dropdown:last-child .dropdown-content {
+  right: 0;
+  left: auto;
 }
 
 /* ===== CONTENT ===== */
@@ -221,4 +231,15 @@ button:hover{
     width: 100%;
   }
 
+}
+
+
+/* ===== DROPDOWN FIX ===== */
+.show {
+  display: block;
+}
+
+/* smooth feel */
+.dropdown-content {
+  transition: all 0.2s ease;
 }
