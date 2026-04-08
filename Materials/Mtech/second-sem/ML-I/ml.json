@@ -1,0 +1,162 @@
+[
+  {
+    "lecture": 1,
+    "topic": "Linear Algebra",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Linear_Algebra_Review.pptx"
+  },
+  {
+    "lecture": 2,
+    "topic": "Optimisation",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/2025_Optimization_Lecture_Updated_1.ppt"
+  },
+  {
+    "lecture": 3,
+    "topic": "Linear Regression-1",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Regression_Part_1.pptx"
+  },
+  {
+    "lecture": 4,
+    "topic": "Linear Regression-2",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Regression_2.pptx"
+  },
+  {
+    "lecture": 5,
+    "topic": "Logistic Regression",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Logistic_Regression.pptx"
+  },
+  {
+    "lecture": 6,
+    "topic": "Ensemble",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/2025_Ensemble_Talk.pptx"
+  },
+  {
+    "lecture": 7,
+    "topic": "Decision Tree Classifier",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/A%20First%20Look%20at%20the%20Decision%20Tree%20Classifiers.pptx"
+  },
+  {
+    "lecture": 8,
+    "topic": "Boosting Math",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Boosting_Math.pptx"
+  },
+  {
+    "lecture": 9,
+    "topic": "Gradient Boosting Hand Tracing",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Gradient_Boosting_Hand_Tracing.pdf"
+  },
+  {
+    "lecture": 10,
+    "topic": "Gradient Boosting Example",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/gradient_boosting_Example.pdf"
+  },
+  {
+    "lecture": 11,
+    "topic": "Boosting Hand Tracing-I",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Boosting_Hand_Trace_1.pdf"
+  },
+  {
+    "lecture": 12,
+    "topic": "Boosting Hand Tracing-II",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Boosting_Hand_Trace_2.pdf"
+  },
+  {
+    "lecture": 13,
+    "topic": "Constrained Optimisation",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Constrained%20Optimitation-.pdf"
+  },
+  {
+    "lecture": 14,
+    "topic": "SVM",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Updated_2020_SVM_Lecture_1.pptx"
+  },
+  {
+    "lecture": 15,
+    "topic": "Mid-Sem Revision",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/midsem_revision.pdf"
+  },
+  {
+    "lecture": 16,
+    "topic": "Clustering",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Clustering%20_Slides_1.pptx"
+  },
+  {
+    "lecture": 17,
+    "topic": "K-Means Matrix",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/kMeansMatrix.pdf"
+  },
+  {
+    "lecture": 18,
+    "topic": "PCA-LDA",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/PCA_LDA_Dimensionality_Reduction.ppsx"
+  },
+  {
+    "lecture": 19,
+    "topic": "MLE-MAP",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/MLE_MAP.pptx"
+  },
+  {
+    "lecture": 20,
+    "topic": "Spectral Clustering Introdction",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Spectral%20Clustering%20Introduction.pdf"
+  },
+  {
+    "lecture": 21,
+    "topic": "Expectation Maximization",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/EM_MTech(CS)_1.pps"
+  },
+  {
+    "lecture": 22,
+    "topic": "Multivariate Probability Distributions",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Multivariate%20Probability%20Distributions.pdf"
+  },
+  {
+    "lecture": 23,
+    "topic": "Expectation Maximization: Detailed",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/EM_Notes.pdf"
+  },
+  {
+    "lecture": 24,
+    "topic": "1-D Gaussian Mixture",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/1d_Gaussian_Mixture.pdf"
+  },
+  {
+    "lecture": 25,
+    "topic": "Gaussian Mixture model for clustering",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/GMM_MTech(CS).pdf"
+  },
+  {
+    "lecture": 26,
+    "topic": "ANN",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/ANN_Slides.pptx"
+  },
+  {
+    "lecture": 27,
+    "topic": "Deep Learning-I",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Deep%20Machine%20Learning%201.pptx"
+  },
+  {
+    "lecture": 28,
+    "topic": "Classifier Performance Measure",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/Perform_Measures_2025.pptx"
+  },
+  {
+    "lecture": 29,
+    "topic": "Optimisation for Deep Learning",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/optimize_Deep.pps.ppt"
+  },
+  {
+    "lecture": 30,
+    "topic": "Deep Convolutional Neural Architectures",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/CNN_DL_2020.ppsx"
+  },
+  {
+    "lecture": 31,
+    "topic": "Convolution Arithmetic and Details of CNN Training",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/CNN_Details.pptx"
+  },
+  {
+    "lecture": 32,
+    "topic": "Tips for Training DNN",
+    "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/ML-1/CNN_Details2.ppsx"
+  }
+]

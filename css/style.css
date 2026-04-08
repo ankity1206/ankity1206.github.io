@@ -11,18 +11,22 @@
 body{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 
                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #000;
+  background: radial-gradient(circle at center, #050505, #000000 80%);
   color: white;
   overflow-x: hidden;
-	-webkit-font-smoothing: antialiased;
+
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-		line-height: 1.6;
+
+  line-height: 1.6;
+
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  padding-top: 80px; /* ⭐ replaces margin-top */
+  padding-top: 80px;
 }
+
 /* ===== BACKGROUND ===== */
 canvas{
   position: fixed;
@@ -47,17 +51,14 @@ canvas{
   padding: 15px 30px;
 
   background: transparent;
-  backdrop-filter: none;
-  box-shadow: none;
-
   z-index: 1000;
 
-  transition: background 0.3s ease;  /* ⭐ smooth change */
+  transition: background 0.3s ease;
 }
 
 .navbar.scrolled{
-  background: rgba(0,0,0,0.6);   /* slightly lighter */
-  backdrop-filter: blur(6px);    /* ⭐ subtle glass effect */
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
 }
 
 .brand{
@@ -79,6 +80,8 @@ canvas{
 
   display: flex;
   align-items: center;
+  height: 100%;        /* ⭐ FIX */
+  line-height: 1;      /* ⭐ FIX */
 }
 
 .nav-links a:hover{
@@ -98,12 +101,13 @@ canvas{
 
   cursor: pointer;
 
-  padding: 0;              /* remove default padding */
+  padding: 0;
   margin: 0;
-  line-height: normal;     /* fix vertical alignment */
 
-  display: flex;           /* align like links */
+  display: flex;
   align-items: center;
+  height: 100%;        /* ⭐ FIX */
+  line-height: 1;      /* ⭐ FIX */
 }
 
 .dropbtn:hover{
@@ -121,9 +125,9 @@ canvas{
 
   border-radius: 10px;
 
-  width: max-content;          /* ✅ shrink to content */
-  max-width: 90vw;             /* ✅ never exceed screen */
-  white-space: nowrap;         /* ✅ prevent breaking */
+  width: max-content;
+  max-width: 90vw;
+  white-space: nowrap;
 
   overflow: hidden;
   z-index: 2000;
@@ -134,8 +138,6 @@ canvas{
   padding: 10px 15px;
   color: white;
   text-decoration: none;
-
-  white-space: nowrap; /* keep text in one line */
 }
 
 .dropdown-content a:hover{
@@ -147,10 +149,14 @@ canvas{
   left: auto;
 }
 
+.show {
+  display: block;
+}
+
 /* ===== CONTENT ===== */
 .container{
   text-align: center;
-	flex: 1;
+  flex: 1;
 }
 
 /* ===== CARD ===== */
@@ -164,40 +170,38 @@ canvas{
   backdrop-filter: blur(10px);
 }
 
-/* ===== TABLE WRAPPER ===== */
+/* ===== TABLE CONTAINER ===== */
 .table-container{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-
-  max-width: 900px;   /* ⭐ LIMIT total width */
   margin: 40px auto;
+  max-width: 900px;
+  overflow-x: auto;
 }
-/* force vertical on small screens */
-@media (max-width: 700px){
-  .table-container{
-    grid-template-columns: 1fr;
-  }
-}
-/* ===== TABLE BASE ===== */
-.table{
-  border-collapse: collapse;
 
-  width: 100%;
-  max-width: 320px;
-  min-width: 250px;
+/* ===== TABLE ===== */
+.table{
+  width: auto;
+  max-width: 100%;
+  border-collapse: collapse;
 
   margin: 0 auto;
 
-  background: transparent;     /* ✅ fully transparent */
-  backdrop-filter: none;       /* ✅ remove glass effect */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* ⭐ smooth */
+  background: transparent;
+  color: white;
+
+  white-space: nowrap;   /* optional (kept as you wanted) */
 }
 
-/* ===== HOVER EFFECT ===== */
-.table:hover{
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,255,255,0.15);
+
+/* ===== TABLE TEXT ===== */
+.table th,
+.table td{
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.table td{
+  word-break: break-word;
 }
 
 /* ===== CAPTION ===== */
@@ -209,20 +213,6 @@ canvas{
   color: #00ffff;
 }
 
-/* ===== HEADER ===== */
-.table th{
-  text-align: left;
-  padding: 12px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-/* ===== CELLS ===== */
-.table td{
-  padding: 12px 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  text-align: left;
-}
-
 /* ===== LINKS ===== */
 .table a{
   color: #00ffff;
@@ -232,6 +222,7 @@ canvas{
 .table a:hover{
   text-decoration: underline;
 }
+
 .table tr:hover{
   background: rgba(255,255,255,0.05);
 }
@@ -240,10 +231,13 @@ canvas{
 button{
   padding: 12px 20px;
   margin-top: 20px;
+
   border: none;
   border-radius: 10px;
+
   background: #111;
   color: white;
+
   cursor: pointer;
 }
 
@@ -251,61 +245,15 @@ button:hover{
   background: #222;
 }
 
-/* ===== MOBILE ===== */
-@media (max-width:700px){
-
-.navbar{
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.nav-links{
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.dropdown-content{
-  position: relative;
-  width: 100%;
-}
-
-.table-container{
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .table{
-    width: 100%;
-  }
-
-}
-
-
-/* ===== DROPDOWN FIX ===== */
-.show {
-  display: block;
-}
-
-/* smooth feel */
-.dropdown-content {
-  transition: all 0.2s ease;
-}
-
-
 /* ===== FOOTER ===== */
 .footer{
   margin-top: 60px;
   padding: 30px 20px;
 
-  background: transparent;      /* ⭐ fully transparent */
-  backdrop-filter: none;        /* remove blur */
   border-top: 1px solid rgba(0,255,255,0.2);
-	box-shadow: 0 -5px 15px rgba(0,255,255,0.1);
+  box-shadow: 0 -5px 15px rgba(0,255,255,0.1);
 }
 
-/* ===== CONTENT ===== */
 .footer-content{
   display: flex;
   justify-content: space-between;
@@ -318,13 +266,11 @@ button:hover{
   margin: 0 auto;
 }
 
-/* ===== LEFT ===== */
 .footer-left h3{
   color: #00ffff;
   margin-bottom: 5px;
 }
 
-/* ===== LINKS ===== */
 .footer-links,
 .footer-social{
   display: flex;
@@ -342,7 +288,6 @@ button:hover{
   color: #00ffff;
 }
 
-/* ===== BOTTOM ===== */
 .footer-bottom{
   text-align: center;
   margin-top: 20px;
@@ -350,10 +295,88 @@ button:hover{
   opacity: 0.7;
 }
 
+/* ===== MOBILE ===== */
 @media (max-width:700px){
+
+  .navbar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links{
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .dropdown-content{
+    position: relative;
+    width: 100%;
+  }
+
+  .table{
+    width: 100%;
+  }
+
   .footer-content{
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+}
+
+
+
+/* ========for cards ======*/
+.card-list{
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 20px;
+
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+}
+
+.card-left h3{
+  margin-bottom: 5px;
+}
+
+.card-left p{
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.card-left{
+  text-align: left;
+}
+
+.card-right{
+  display: flex;
+  gap: 15px;
+margin-left: auto;
+}
+
+.card-right a{
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.card-right a:hover{
+  text-decoration: underline;
+}
+
+.card-list a, 
+.card-list a:visited {
+    color: blue;
+    text-decoration: none;
 }

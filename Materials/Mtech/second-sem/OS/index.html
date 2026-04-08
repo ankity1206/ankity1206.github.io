@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ankit Yadav</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Tally -->
+  <script src="https://tally.so/widgets/embed.js"></script>
+</head>
+
+<body>
+
+<!-- Background -->
+<canvas id="bg"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="brand">Ankit Yadav</div>
+
+  <div class="nav-links">
+    <a href="/index.html">Home</a>
+    <a href="/SomeRepo/index.html">Some Repos</a>
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown(event)">Xtra's ▾</button>
+
+      <div class="dropdown-content">
+        <a href="/Materials/index.html">Materials</a>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="card">
+    <h1>OS</h1>
+  </div>
+
+
+  <!-- OS Lectures (CARD VIEW) -->
+  <div class="card-list" id="os-table-body">
+    <p>Loading...</p>
+  </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="/js/background.js"></script>
+<script src="/js/navbar.js" defer></script>
+<script src="/js/tally.js" defer></script>
+
+<!-- JSON Loader -->
+<script>
+async function loadMLLectures() {
+  const container = document.getElementById("os-table-body");
+
+  try {
+    const res = await fetch("os.json");
+    const data = await res.json();
+
+    let html = "";
+
+    data.forEach(item => {
+      const viewLink = item.raw.endsWith(".pdf")
+        ? `https://docs.google.com/viewer?url=${item.raw}`
+        : `https://view.officeapps.live.com/op/view.aspx?src=${item.raw}`;
+
+      html += `
+        <div class="card-item">
+          <div class="card-left">
+            <p>Lecture ${item.lecture}</p>
+          </div>
+
+          <div class="card-right">
+            <a href="${viewLink}">View</a>
+            <a href="${item.raw}" download>Download</a>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html || "<p>No data available</p>";
+
+  } catch (err) {
+    console.error("Error loading JSON:", err);
+    container.innerHTML = "<p>Failed to load data</p>";
+  }
+}
+
+loadMLLectures();
+</script>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-content">
+
+    <div class="footer-left">
+      <h3><a href="#">Ankit Yadav</a></h3>
+      <p>Just trials</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="/index.html">Home</a>
+      <a href="/SomeRepo/index.html">Some Repos</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://github.com/ankity1206" target="_blank">GitHub</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Ankit Yadav.</p>
+  </div>
+
+</footer>
+
+</body>
+</html>

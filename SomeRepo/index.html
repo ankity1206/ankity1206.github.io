@@ -5,9 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Some Repositories</title>
+
   <link rel="stylesheet" href="../css/style.css">
 </head>
-	
+
+
+
 <body>
 
 <!-- Background -->
@@ -20,19 +23,14 @@
   <div class="nav-links">
     <a href="../index.html">Home</a>
 	<a href="#">Some Repos</a>
-	<!--------
-    		<div class="dropdown">
-      			<button class="dropbtn" onclick="toggleDropdown(event)">
-        		Simulators ▾
-      			</button>
+	<div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown(event)">Xtra's ▾</button>
 
-      			<div class="dropdown-content" id="dropdownMenu">
-        			<a href="#">Simulator 1</a>
-        			<a href="#">Simulator 2</a>
-        			<a href="#">Simulator 3</a>
-      			</div>
-    		</div>
-	----->
+      <div class="dropdown-content">
+        <a href="/Materials/index.html">Materials</a>
+      </div>
+    	</div>
+
   </div>
 </nav>
 
@@ -40,61 +38,25 @@
 <div class="container">
 
   <div class="card">
-    <h1>Repositories</h1>
+    <h1>Some Repositories</h1>
   </div>
 
-  <!-- My Repositories -->
-  <div class="table-container">
+	<div class="card-list">
+	
+	<h3> <a href="https://github.com/ankity1206/some-commands-for-ubuntu-20.04" target="_blank">Some Linux Commands</a></h3>
+	<h3> <a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">xv-6</a></h3>
+	<h3> <a href="https://github.com/swansonk14/IntroML" target="_blank">Hands On Intro to ML</a></h3>
+	<h3> <a href="https://github.com/fplll/g6k" target="_blank">G6K for Lattice Based Schemes Cryptanalysis</a></h3>
+	<h3> <a href="https://github.com/ElenaKirshanova/ntru_with_sieving" target="_blank">For NTRU Cryptanalysis</a></h3>
 
-  <!-- LEFT TABLE -->
-  <table class="table">
-    <caption>Some Repositories</caption>
-    <tr>
-      <td>Linux Commands</td>
-      <td><a href="https://github.com/ankity1206/some-commands-for-ubuntu-20.04">Open</a></td>
-    </tr>
-    <tr>
-      <td>MTech Material</td>
-      <td><a href="https://github.com/ankity1206/from_mtech">Open</a></td>
-    </tr>
-  </table>
+	</div>
 
-  <!-- RIGHT TABLE -->
-  <table class="table">
-    <caption>Useful Links</caption>
-    <tr>
-        <td>XV6 Repository</td>
-        <td>
-          <a href="https://github.com/mit-pdos/xv6-riscv" target="_blank">Open</a>
-        </td>
-      </tr>
-      <tr>
-        <td>Hands On Introduction to Machine Learning</td>
-        <td>
-          <a href="https://github.com/swansonk14/IntroML" target="_blank">Open</a>
-        </td>
-      </tr>
-      <tr>
-        <td>G6K for Lattice Based Schemes Cryptanalysis</td>
-        <td>
-          <a href="https://github.com/fplll/g6k" target="_blank">Open</a>
-        </td>
-      </tr>
-      <tr>
-        <td>For NTRU Cryptanalysis</td>
-        <td>
-          <a href="https://github.com/ElenaKirshanova/ntru_with_sieving" target="_blank">Open</a>
-        </td>
-      </tr>  
-    </table>
-
-
-
-</div>
 </div>
 
 <!-- Scripts -->
-<script src="../js/solar.js"></script>
+<script src="/js/background.js"></script>
+<script src="/js/navbar.js" defer></script>
+<script src="/js/tally.js" defer></script>
 
 
 <footer class="footer">
@@ -102,12 +64,12 @@
   <div class="footer-content">
 
     <div class="footer-left">
-      <h3>Ankit Yadav</h3>
+      <h3><a href="#">Ankit Yadav</a></h3>
       <p>Just trials.</p>
     </div>
 
     <div class="footer-links">
-      <a href="../index.html">Home</a>
+      <a href="/index.html">Home</a>
       <a href="#">Some Repos</a>
     </div>
 
