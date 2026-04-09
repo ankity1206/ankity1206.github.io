@@ -12,17 +12,18 @@ repo
 |---components
       |---navbar.html
       |---footer.html
-|---SomeRepo
-      |---index.html
-|---Materials
-      |---index.html
-      |---Mtech
-          |---index.html
-          |---second-sem
-              |---index.html
-              |---ML-I
-                  |---index.html
-                  |---ml.json
-              |---OS
-                  |---index.html
-                  |---os.json
+|---pages
+      |---SomeRepo
+            |---index.html
+      |---Materials
+            |---index.html
+            |---Mtech
+                |---index.html
+                |---second-sem
+                    |---index.html
+                    |---ML-I
+                        |---index.html
+                        |---ml.json
+                    |---OS
+                        |---index.html
+                        |---os.json
