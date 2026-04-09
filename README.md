@@ -1,0 +1,28 @@
+#### Repo Structure:
+repo
+|---index.html
+|---config.yml
+|---css
+      |---style.css
+|---js
+      |---background.js
+      |---include.js
+      |---navbar.js
+      |---tally.js
+|---components
+      |---navbar.html
+      |---footer.html
+|---SomeRepo
+      |---index.html
+|---Materials
+      |---index.html
+      |---Mtech
+          |---index.html
+          |---second-sem
+              |---index.html
+              |---ML-I
+                  |---index.html
+                  |---ml.json
+              |---OS
+                  |---index.html
+                  |---os.json
