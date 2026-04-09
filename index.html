@@ -8,76 +8,36 @@
 
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- Tally -->
-  <script src="https://tally.so/widgets/embed.js"></script>
+  <!-- Tally (non-blocking) -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
 </head>
 
 <body>
 
-<!-- Background -->
-<canvas id="bg"></canvas>
+  <!-- Background -->
+  <canvas id="bg"></canvas>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="brand">Ankit Yadav</div>
+  <!-- Navbar -->
+  <div id="navbar" style="visibility:hidden;"></div>
 
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="SomeRepo/index.html">Some Repos</a>
-     
-	<div class="dropdown">
-      <button class="dropbtn" >Xtra's▾</button>
-
-      <div class="dropdown-content">
-        <a href="Materials/index.html">Materials</a>
-      </div>
-    	</div>
-	
-  </div>
-</nav>
-
-<!-- CONTENT -->
-<div class="container">
-
-  <div class="card">
-    <h1>Ankit Yadav</h1>
-    <p>Just trying HTML commands.</p>
-  </div>
-
-  <button onclick="openTally()">Upload Files</button>
-
-</div>
-
-<script defer src="js/background.js"></script>
-<script defer src="js/navbar.js"></script>
-<script async src="js/tally.js" defer></script>
-<footer class="footer">
-
-  <div class="footer-content">
-
-    <div class="footer-left">
-      <h3><a href="#">Ankit Yadav</a></h3>
-      <p>Just trials</p>
+  <!-- CONTENT -->
+  <div class="container">
+    <div class="card">
+      <h1>Ankit Yadav</h1>
+      <p>Just trying HTML commands.</p>
     </div>
 
-    <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="SomeRepo/index.html">Some Repos</a>
-	<!----
-	<a href="Materials/index.html">Links and Pdfs</a>
-	---->
-    </div>
-
-    <div class="footer-social">
-      <a href="https://github.com/ankity1206" target="_blank">GitHub</a>
-    </div>
-
+    <button onclick="openTally()">Upload Files</button>
   </div>
 
-  <div class="footer-bottom">
-    <p>© 2026 Ankit Yadav.</p>
-  </div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
-</footer>
+  <!-- Scripts -->
+  <script defer src="/js/include.js"></script>
+  <script defer src="/js/background.js"></script>
+  <script defer src="/js/navbar.js"></script>
+  <script async src="/js/tally.js"></script>
+
 </body>
 </html>

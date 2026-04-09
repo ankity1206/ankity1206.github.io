@@ -1,56 +1,57 @@
-// ===== NAVBAR SCRIPT =====
-document.addEventListener("DOMContentLoaded", () => {
+window.App = window.App || {};
 
-  /* ================= DROPDOWN ================= */
-  const dropdownButtons = document.querySelectorAll(".dropbtn");
-  const dropdownMenus = document.querySelectorAll(".dropdown-content");
+App.navbar = {
+  init() {
 
-  dropdownButtons.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
+    /* ================= DROPDOWN ================= */
+    const dropdownButtons = document.querySelectorAll(".dropbtn");
+    const dropdownMenus = document.querySelectorAll(".dropdown-content");
 
-      // close all dropdowns first
-      dropdownMenus.forEach(menu => menu.classList.remove("show"));
+    dropdownButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
 
-      // open current one
-      const menu = btn.nextElementSibling;
-      if (menu) menu.classList.toggle("show");
-    });
-  });
+        dropdownMenus.forEach(menu => menu.classList.remove("show"));
 
-  /* ===== prevent closing when clicking inside ===== */
-  dropdownMenus.forEach(menu => {
-    menu.addEventListener("click", (e) => {
-      e.stopPropagation();
-    });
-  });
-
-  /* ===== click outside closes all ===== */
-  document.addEventListener("click", () => {
-    dropdownMenus.forEach(menu => menu.classList.remove("show"));
-  });
-
-  /* ===== ESC key closes ===== */
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      dropdownMenus.forEach(menu => menu.classList.remove("show"));
-    }
-  });
-
-  /* ================= SCROLL EFFECT ================= */
-  let ticking = false;
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const nav = document.querySelector(".navbar");
-        if (nav) {
-          nav.classList.toggle("scrolled", window.scrollY > 50);
-        }
-        ticking = false;
+        const menu = btn.nextElementSibling;
+        if (menu) menu.classList.toggle("show");
       });
-      ticking = true;
-    }
-  });
+    });
 
-});
+    /* ===== prevent closing when clicking inside ===== */
+    dropdownMenus.forEach(menu => {
+      menu.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+    });
+
+    /* ===== click outside closes all ===== */
+    document.addEventListener("click", () => {
+      dropdownMenus.forEach(menu => menu.classList.remove("show"));
+    });
+
+    /* ===== ESC key closes ===== */
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        dropdownMenus.forEach(menu => menu.classList.remove("show"));
+      }
+    });
+
+    /* ================= SCROLL EFFECT ================= */
+    let ticking = false;
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const nav = document.querySelector(".navbar");
+          if (nav) {
+            nav.classList.toggle("scrolled", window.scrollY > 50);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+  }
+};
