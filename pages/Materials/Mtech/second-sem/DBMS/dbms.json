@@ -1,0 +1,12 @@
+[
+{ "lecture": 1, "topic": "Introduction to Databases", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Introduction%20to%20Databases.pdf" },
+{ "lecture": 2, "topic": "Mathematical Preliminaries", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Mathematical%20Operations.pdf" },
+{ "lecture": 3, "topic": "Relational Data Model", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Relational%20Data%20Model.pdf" },
+{ "lecture": 4, "topic": "Database Structuring and Querying with SQL", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/basics%20of%20SQL.pdf" },
+{ "lecture": 5, "topic": "Database Indexing", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Trees.pdf" },
+{ "lecture": 6, "topic": "Database Normalization", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Data%20Base%20Normalisation.pdf" },
+{ "lecture": 7, "topic": "Query Optimization", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Query%20Optimisation.pdf" },
+{ "lecture": 8, "topic": "Transaction Processing", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Class%20VII.pdf" },
+{ "lecture": 9, "topic": "Concurrency Control", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Class%20VIII.pdf" },
+{ "lecture": 10,"topic": "Big Data Management", "raw": "https://github.com/ankity1206/from_mtech/raw/refs/heads/main/DBMS/Class%20IX.pdf" }
+]

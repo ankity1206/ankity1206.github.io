@@ -24,36 +24,35 @@
 <div class="container">
 
   <div class="card">
-    <h1>OS</h1>
+    <h1>Database Managment System</h1>
   </div>
 
 
-  <!-- OS Lectures (CARD VIEW) -->
-  <div class="card-list" id="os-table-body">
+  <!-- ML Lectures (CARD VIEW) -->
+  <div class="card-list" id="dbms-table-body">
     <p>Loading...</p>
   </div>
 
 </div>
 
-  <!-- Footer -->
+
+<!-- Footer -->
   <div id="footer"></div>
 
   <!-- Scripts -->
-<!-- Component system -->
 <script src="/js/include.js"></script>
 
 <!-- Feature scripts -->
 <script src="/js/navbar.js"></script>
 <script src="/js/background.js"></script>
 
-
 <!-- JSON Loader -->
 <script>
 async function loadMLLectures() {
-  const container = document.getElementById("os-table-body");
+  const container = document.getElementById("dbms-table-body");
 
   try {
-    const res = await fetch("os.json");
+    const res = await fetch("dbms.json");
     const data = await res.json();
 
     let html = "";
@@ -66,7 +65,8 @@ async function loadMLLectures() {
       html += `
         <div class="card-item">
           <div class="card-left">
-            <p>Lecture ${item.lecture}</p>
+            <h4>Lecture ${item.lecture}</h4>
+            <h4>${item.topic}</h4>
           </div>
 
           <div class="card-right">

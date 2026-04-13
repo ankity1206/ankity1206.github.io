@@ -88,6 +88,9 @@ canvas{
   color: #00ffff;
 }
 
+.active {
+  border-bottom: 2px solid cyan;
+}
 /* ===== DROPDOWN ===== */
 .dropdown{
   position: relative;

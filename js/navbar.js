@@ -1,57 +1,94 @@
-window.App = window.App || {};
+async function loadNavbar() {
+  const container = document.getElementById("nav-container");
 
-App.navbar = {
-  init() {
+  const res = await fetch("/data/navbar.json");
+  const data = await res.json();
 
-    /* ================= DROPDOWN ================= */
-    const dropdownButtons = document.querySelectorAll(".dropbtn");
-    const dropdownMenus = document.querySelectorAll(".dropdown-content");
+  const current = window.location.pathname.replace(/\/$/, "");
 
-    dropdownButtons.forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
+  /* LINKS */
+  data.links.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.textContent = link.name;
 
-        dropdownMenus.forEach(menu => menu.classList.remove("show"));
+    if (current === link.url.replace(/\/$/, "")) {
+      a.classList.add("active");
+    }
 
-        const menu = btn.nextElementSibling;
-        if (menu) menu.classList.toggle("show");
-      });
+    container.appendChild(a);
+  });
+
+  /* DROPDOWNS */
+  data.dropdowns.forEach(drop => {
+    const wrapper = document.createElement("div");
+    wrapper.className = "dropdown";
+
+    const btn = document.createElement("button");
+    btn.className = "dropbtn";
+    btn.textContent = drop.name + " ▾";
+
+    const menu = document.createElement("div");
+    menu.className = "dropdown-content";
+
+    drop.items.forEach(item => {
+      const a = document.createElement("a");
+      a.href = item.url;
+      a.textContent = item.name;
+
+      if (current === item.url.replace(/\/$/, "")) {
+        a.classList.add("active");
+      }
+
+      menu.appendChild(a);
     });
 
-    /* ===== prevent closing when clicking inside ===== */
-    dropdownMenus.forEach(menu => {
-      menu.addEventListener("click", (e) => {
-        e.stopPropagation();
-      });
-    });
-
-    /* ===== click outside closes all ===== */
-    document.addEventListener("click", () => {
-      dropdownMenus.forEach(menu => menu.classList.remove("show"));
-    });
-
-    /* ===== ESC key closes ===== */
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        dropdownMenus.forEach(menu => menu.classList.remove("show"));
+    /* 🔥 HOVER SUPPORT (desktop) */
+    wrapper.addEventListener("mouseenter", () => {
+      if (window.innerWidth > 700) {
+        menu.style.display = "block";
       }
     });
 
-    /* ================= SCROLL EFFECT ================= */
-    let ticking = false;
-
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const nav = document.querySelector(".navbar");
-          if (nav) {
-            nav.classList.toggle("scrolled", window.scrollY > 50);
-          }
-          ticking = false;
-        });
-        ticking = true;
+    wrapper.addEventListener("mouseleave", () => {
+      if (window.innerWidth > 700) {
+        menu.style.display = "none";
       }
     });
 
+    /* CLICK (mobile) */
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      document.querySelectorAll(".dropdown-content").forEach(d => {
+        if (d !== menu) d.style.display = "none";
+      });
+
+      menu.style.display =
+        menu.style.display === "block" ? "none" : "block";
+    });
+
+    wrapper.appendChild(btn);
+    wrapper.appendChild(menu);
+    container.appendChild(wrapper);
+  });
+
+  /* CLOSE ON OUTSIDE CLICK */
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".dropdown-content").forEach(d => {
+      d.style.display = "none";
+    });
+  });
+}
+
+/* 🔥 NAVBAR SCROLL EFFECT */
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".navbar");
+  if (!nav) return;
+
+  if (window.scrollY > 10) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
   }
-};
+});

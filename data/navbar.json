@@ -1,0 +1,23 @@
+{
+  "links": [
+    {
+      "name": "Home",
+      "url": "/index.html"
+    },
+    {
+      "name": "Some Repos",
+      "url": "/pages/SomeRepo/index.html"
+    }
+  ],
+  "dropdowns": [
+    {
+      "name": "Xtra's",
+      "items": [
+        {
+          "name": "Notes",
+          "url": "/pages/Materials/index.html"
+        }
+      ]
+    }
+  ]
+}

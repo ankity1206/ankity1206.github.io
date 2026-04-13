@@ -1,43 +1,59 @@
 const cache = {};
+const VERSION = "v2"; // 🔥 update when needed
 
 async function loadComponent(id, file) {
-  try {
-    const el = document.getElementById(id);
-    if (!el) return;
+  const el = document.getElementById(id);
+  if (!el) return;
 
-    // use cache to avoid re-fetching
+  try {
     if (cache[file]) {
       el.innerHTML = cache[file];
-      return;
+    } else {
+      const res = await fetch(file + "?v=" + VERSION);
+      if (!res.ok) throw new Error(`Failed to load ${file}`);
+
+      const data = await res.text();
+      cache[file] = data;
+      el.innerHTML = data;
     }
 
-    const res = await fetch(file);
-
-    if (!res.ok) throw new Error(`Failed to load ${file}`);
-
-    const data = await res.text();
-    cache[file] = data;
-
-    el.innerHTML = data;
+    if (componentInit[id]) {
+      componentInit[id]();
+    }
 
   } catch (err) {
     console.error("Component load error:", err);
+    el.innerHTML = `<div style="color:red">Failed to load component</div>`;
   }
 }
 
+/* INIT */
+const componentInit = {
+  navbar: () => {
+    if (typeof loadNavbar === "function") {
+      loadNavbar();
+    }
+  },
+  footer: () => {}
+};
+
+/* BOOT */
 (async () => {
-  // load BOTH in parallel (faster + safer)
   await Promise.all([
     loadComponent("navbar", "/components/navbar.html"),
     loadComponent("footer", "/components/footer.html")
   ]);
 
-  // show navbar after load
-  const nav = document.getElementById("navbar");
-  if (nav) nav.style.visibility = "visible";
+  /* 🔥 PREFETCH (inline, no extra request) */
+  document.addEventListener("mouseover", (e) => {
+    const link = e.target.closest("a");
+    if (!link || !link.href) return;
 
-  // init navbar AFTER load
-  if (window.App && App.navbar) {
-    App.navbar.init();
-  }
+    const url = new URL(link.href);
+
+    // only same-origin links
+    if (url.origin !== location.origin) return;
+
+    fetch(link.href, { method: "GET" });
+  });
 })();
