@@ -10,13 +10,13 @@ const VERSION = "v2"; // 🔥 update when needed
     const pngIcon = document.createElement("link");
     pngIcon.rel = "icon";
     pngIcon.type = "image/png";
-    pngIcon.href = "/fevicon.png";
+    pngIcon.href = "/favicon.png";
     document.head.appendChild(pngIcon);
 
     // fallback ICO (better browser support)
     const icoIcon = document.createElement("link");
     icoIcon.rel = "alternate icon";
-    icoIcon.href = "/fevicon.ico";
+    icoIcon.href = "/favicon.ico";
     document.head.appendChild(icoIcon);
   }
 })();
