@@ -6,7 +6,7 @@
     },
 	{
           "name": "About Me",
-          "url": "/about/"
+          "url": "/aboutme/"
         }
   ],
   "dropdowns": [
@@ -15,11 +15,11 @@
       "items": [
     	{
       	"name": "Some Repos",
-      	"url": "/somerepo/"
+      	"url": "/somerepos/"
     	},
         {
           "name": "Notes",
-          "url": "/materials/"
+          "url": "/notes/"
         }
       ]
     }
