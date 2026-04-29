@@ -1,6 +1,17 @@
 const cache = {};
 const VERSION = "v2"; // 🔥 update when needed
 
+/* 🔥 FAVICON INJECTOR (runs immediately) */
+(function () {
+  // avoid duplicate favicon
+  if (!document.querySelector("link[rel='icon']")) {
+    const link = document.createElement("link");
+    link.rel = "icon";
+    link.href = "/favicon.png";
+    document.head.appendChild(link);
+  }
+})();
+
 async function loadComponent(id, file) {
   const el = document.getElementById(id);
   if (!el) return;
