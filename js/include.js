@@ -4,11 +4,20 @@ const VERSION = "v2"; // 🔥 update when needed
 /* 🔥 FAVICON INJECTOR (runs immediately) */
 (function () {
   // avoid duplicate favicon
-  if (!document.querySelector("link[rel='icon']")) {
-    const link = document.createElement("link");
-    link.rel = "icon";
-    link.href = "/favicon.png";
-    document.head.appendChild(link);
+  if (!document.querySelector("link[rel*='icon']")) {
+
+    // PNG favicon
+    const pngIcon = document.createElement("link");
+    pngIcon.rel = "icon";
+    pngIcon.type = "image/png";
+    pngIcon.href = "/favicon.png";
+    document.head.appendChild(pngIcon);
+
+    // fallback ICO (better browser support)
+    const icoIcon = document.createElement("link");
+    icoIcon.rel = "alternate icon";
+    icoIcon.href = "/favicon.ico";
+    document.head.appendChild(icoIcon);
   }
 })();
 
