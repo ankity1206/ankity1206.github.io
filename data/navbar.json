@@ -4,15 +4,19 @@
       "name": "Home",
       "url": "/index.html"
     },
-    {
-      "name": "Some Repos",
-      "url": "/pages/SomeRepo/index.html"
-    }
+	{
+          "name": "About Me",
+          "url": "/pages/Aboutme/index.html"
+        }
   ],
   "dropdowns": [
     {
       "name": "Xtra's",
       "items": [
+    	{
+      	"name": "Some Repos",
+      	"url": "/pages/SomeRepo/index.html"
+    	},
         {
           "name": "Notes",
           "url": "/pages/Materials/index.html"

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Some Repositories</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- 🔥 Page-specific styling (safe, scoped) -->
+  <style>
+    /* tighten layout */
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+    }
+
+    .card {
+      margin-bottom: 20px;
+      padding: 1.8rem;
+    }
+
+    /* reduce oversized heading feel */
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    /* 🔥 education upgrade */
+    .education-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .education-list li {
+      margin-bottom: 1.4rem;
+      padding-left: 14px;
+      border-left: 2px solid rgba(255,255,255,0.2);
+      line-height: 1.5;
+    }
+
+    .education-list strong {
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .year {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-left: 6px;
+    }
+
+    /* optional subtle polish */
+    .card h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+
+
+
+<body>
+
+<!-- Background -->
+<canvas id="bg"></canvas>
+
+<!-- Navbar -->
+<div id="navbar" class="component"></div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="card">
+    <h1>About Me</h1>
+  </div>
+
+  <section class="card">
+    <h2>Education</h2>
+
+    <ul class="education-list">
+      <li>
+        <strong>M.Tech. Computer Science</strong>
+        ISI Kolkata <span class="year">(2025–)</span>
+      </li>
+
+      <li>
+        <strong>M.Sc. Mathematics</strong>
+        IIT Bombay <span class="year">(2022–24)</span>
+      </li>
+
+      <li>
+        <strong>B.Sc. (Hons.) Mathematics</strong>
+        Indira Gandhi University, Haryana
+      </li>
+    </ul>
+
+  </section>
+
+</div>
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<!-- Scripts -->
+<script src="/js/include.js"></script>
+<script src="/js/navbar.js"></script>
+<script src="/js/background.js"></script>
+
+</body>
+</html>
