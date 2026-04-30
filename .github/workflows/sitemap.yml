@@ -4,26 +4,26 @@ on:
   push:
     branches:
       - master
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  build-sitemap:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Generate sitemap
+      - name: Generate sitemap.xml (atomic write)
         run: |
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          tmpfile="sitemap-temp.xml"
+
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > $tmpfile
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $tmpfile
 
           find . -name "index.html" | while read file; do
             path=$(dirname "$file")
-            
+
             if [ "$path" = "." ]; then
               url="https://ankity1206.github.io/"
             else
@@ -33,22 +33,25 @@ jobs:
 
             lastmod=$(git log -1 --format="%cI" -- "$file")
 
-            echo "  <url>" >> sitemap.xml
-            echo "    <loc>$url</loc>" >> sitemap.xml
-            echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
-            echo "  </url>" >> sitemap.xml
-
+            echo "  <url>" >> $tmpfile
+            echo "    <loc>$url</loc>" >> $tmpfile
+            echo "    <lastmod>$lastmod</lastmod>" >> $tmpfile
+            echo "  </url>" >> $tmpfile
           done
 
-          echo '</urlset>' >> sitemap.xml
+          echo '</urlset>' >> $tmpfile
 
-      - name: Commit sitemap
+          mv $tmpfile sitemap.xml
+
+      - name: Commit and push sitemap
         run: |
           git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.email "actions@github.com"
 
           git add sitemap.xml
 
+          # Only commit if there are changes
           git diff --cached --quiet || git commit -m "Auto-update sitemap"
 
+          git pull --rebase origin master
           git push
