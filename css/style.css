@@ -325,8 +325,54 @@ button:hover{
   }
 
   .card{
-    margin: 20px 12px;
-    padding: 24px 18px;
+    margin: 18px 12px;
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .card h1{
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .card-item{
+    padding: 22px 18px;
+    border-radius: 14px;
+
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+	backdrop-filter: blur(14px);
+  background: rgba(10,10,20,0.45);
+    gap: 18px;
+  }
+
+  .card-left{
+    text-align: center;
+    width: 100%;
+  }
+
+  .card-left h3{
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .card-left p{
+    font-size: 1rem;
+  }
+
+  .card-right{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    margin-left: 0;
+  }
+
+  .card-right a{
+    font-size: 1rem;
   }
 
   .table{
