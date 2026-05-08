@@ -4,28 +4,36 @@
       "name": "Home",
       "url": "/index.html"
     },
-	{
-          "name": "About Me",
-          "url": "/aboutme/"
-        },
-	{
-          "name": "Research",
-          "url": "/research/"
-        }
+    {
+      "name": "About Me",
+      "url": "/aboutme/"
+    },
+    {
+      "name": "Research",
+      "url": "/research/"
+    }
   ],
+
   "dropdowns": [
     {
       "name": "Xtra's",
       "items": [
-    	{
-      	"name": "Some Repos",
-      	"url": "/somerepos/"
-    	},
+        {
+          "name": "Some Repos",
+          "url": "/somerepos/"
+        },
         {
           "name": "Notes",
           "url": "/notes/"
         }
       ]
+    }
+  ],
+
+  "actions": [
+    {
+      "type": "tally",
+      "name": "+ Upload"
     }
   ]
 }

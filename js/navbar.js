@@ -1,94 +1,182 @@
 async function loadNavbar() {
+
   const container = document.getElementById("nav-container");
 
-  const res = await fetch("/data/navbar.json");
-  const data = await res.json();
+  if (!container) return;
 
-  const current = window.location.pathname.replace(/\/$/, "");
+  try {
 
-  /* LINKS */
-  data.links.forEach(link => {
-    const a = document.createElement("a");
-    a.href = link.url;
-    a.textContent = link.name;
+    const res = await fetch("/data/navbar.json");
+    const data = await res.json();
 
-    if (current === link.url.replace(/\/$/, "")) {
-      a.classList.add("active");
-    }
+    const current = window.location.pathname.replace(/\/$/, "");
 
-    container.appendChild(a);
-  });
+    /* =========================
+       NORMAL LINKS
+    ========================== */
+    data.links.forEach(link => {
 
-  /* DROPDOWNS */
-  data.dropdowns.forEach(drop => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "dropdown";
-
-    const btn = document.createElement("button");
-    btn.className = "dropbtn";
-    btn.textContent = drop.name + " ▾";
-
-    const menu = document.createElement("div");
-    menu.className = "dropdown-content";
-
-    drop.items.forEach(item => {
       const a = document.createElement("a");
-      a.href = item.url;
-      a.textContent = item.name;
 
-      if (current === item.url.replace(/\/$/, "")) {
+      a.href = link.url;
+      a.textContent = link.name;
+
+      if (current === link.url.replace(/\/$/, "")) {
         a.classList.add("active");
       }
 
-      menu.appendChild(a);
+      container.appendChild(a);
+
     });
 
-    /* 🔥 HOVER SUPPORT (desktop) */
-    wrapper.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 700) {
-        menu.style.display = "block";
-      }
-    });
+    /* =========================
+       DROPDOWNS
+    ========================== */
+    data.dropdowns.forEach(drop => {
 
-    wrapper.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 700) {
-        menu.style.display = "none";
-      }
-    });
+      const wrapper = document.createElement("div");
+      wrapper.className = "dropdown";
 
-    /* CLICK (mobile) */
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
+      const btn = document.createElement("button");
+      btn.className = "dropbtn";
+      btn.textContent = drop.name + " ▾";
 
-      document.querySelectorAll(".dropdown-content").forEach(d => {
-        if (d !== menu) d.style.display = "none";
+      const menu = document.createElement("div");
+      menu.className = "dropdown-content";
+
+      drop.items.forEach(item => {
+
+        const a = document.createElement("a");
+
+        a.href = item.url;
+        a.textContent = item.name;
+
+        if (current === item.url.replace(/\/$/, "")) {
+          a.classList.add("active");
+        }
+
+        menu.appendChild(a);
+
       });
 
-      menu.style.display =
-        menu.style.display === "block" ? "none" : "block";
+      /* ===== DESKTOP HOVER ===== */
+      wrapper.addEventListener("mouseenter", () => {
+
+        if (window.innerWidth > 700) {
+          menu.style.display = "block";
+        }
+
+      });
+
+      wrapper.addEventListener("mouseleave", () => {
+
+        if (window.innerWidth > 700) {
+          menu.style.display = "none";
+        }
+
+      });
+
+      /* ===== MOBILE CLICK ===== */
+      btn.addEventListener("click", (e) => {
+
+        e.stopPropagation();
+
+        document.querySelectorAll(".dropdown-content").forEach(d => {
+
+          if (d !== menu) {
+            d.style.display = "none";
+          }
+
+        });
+
+        menu.style.display =
+          menu.style.display === "block"
+            ? "none"
+            : "block";
+
+      });
+
+      wrapper.appendChild(btn);
+      wrapper.appendChild(menu);
+
+      container.appendChild(wrapper);
+
     });
 
-    wrapper.appendChild(btn);
-    wrapper.appendChild(menu);
-    container.appendChild(wrapper);
-  });
+    /* =========================
+       ACTION BUTTONS
+    ========================== */
+    if (data.actions) {
 
-  /* CLOSE ON OUTSIDE CLICK */
-  document.addEventListener("click", () => {
-    document.querySelectorAll(".dropdown-content").forEach(d => {
-      d.style.display = "none";
+      data.actions.forEach(action => {
+
+        /* ===== TALLY BUTTON ===== */
+        if (action.type === "tally") {
+
+          const btn = document.createElement("a");
+
+          btn.href = "#";
+          btn.textContent = action.name;
+
+          btn.className = "upload-btn";
+
+          btn.addEventListener("click", (e) => {
+
+            e.preventDefault();
+
+            if (typeof openTally === "function") {
+              openTally();
+            }
+
+          });
+
+          container.appendChild(btn);
+
+        }
+
+      });
+
+    }
+
+    /* =========================
+       CLOSE DROPDOWNS
+    ========================== */
+    document.addEventListener("click", () => {
+
+      document.querySelectorAll(".dropdown-content").forEach(d => {
+        d.style.display = "none";
+      });
+
     });
-  });
+
+  }
+  catch (err) {
+
+    console.error("Failed to load navbar:", err);
+
+  }
+
 }
 
-/* 🔥 NAVBAR SCROLL EFFECT */
+/* =========================
+   NAVBAR SCROLL EFFECT
+========================= */
 window.addEventListener("scroll", () => {
+
   const nav = document.querySelector(".navbar");
+
   if (!nav) return;
 
   if (window.scrollY > 10) {
     nav.classList.add("scrolled");
-  } else {
+  }
+  else {
     nav.classList.remove("scrolled");
   }
+
 });
+
+/* =========================
+   LOAD NAVBAR
+========================= */
+loadNavbar();
