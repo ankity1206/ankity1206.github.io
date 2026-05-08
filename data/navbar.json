@@ -33,7 +33,7 @@
   "actions": [
     {
       "type": "tally",
-      "name": "+ Upload"
+      "name": "Upload"
     }
   ]
 }
