@@ -1,3 +1,23 @@
+/* =========================
+   LOAD TALLY SCRIPT
+========================= */
+(function loadTallyScript() {
+
+  if (window.Tally) return;
+
+  const script = document.createElement("script");
+
+  script.src = "https://tally.so/widgets/embed.js";
+
+  script.async = true;
+
+  document.head.appendChild(script);
+
+})();
+
+/* =========================
+   OPEN TALLY MODAL
+========================= */
 function openTally() {
 
   if (typeof Tally !== "undefined") {
@@ -25,7 +45,7 @@ function openTally() {
   }
   else {
 
-    console.error("Tally script not loaded");
+    console.error("Tally script not loaded yet");
 
   }
 
@@ -36,7 +56,6 @@ function openTally() {
 ========================= */
 document.addEventListener("keydown", function(e) {
 
-  /* avoid triggering inside form fields */
   const tag = document.activeElement.tagName.toLowerCase();
 
   if (
