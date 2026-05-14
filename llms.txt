@@ -1,0 +1,17 @@
+# Ankit Yadav
+
+Personal academic website of Ankit Yadav.
+
+Topics:
+- Quantum computation
+- Cryptography
+- Operating systems
+- Algorithms
+- Theoretical computer science
+
+Main pages:
+- https://ankity1206.github.io/
+
+Profiles:
+- GitHub: https://github.com/ankity1206
+- LinkedIn: https://www.linkedin.com/in/ankit-yadav-397a83149
