@@ -4,56 +4,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ankit Yadav</title>
+  <title>M.Tech 2nd Semester Courses | Ankit Yadav</title>
+  <meta name="description" content="M.Tech 2nd Semester course lectures and materials at ISI Kolkata.">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="alternate icon" href="/favicon.ico">
 
   <link rel="stylesheet" href="/css/style.css">
-
-  <!-- Tally -->
-  <script src="https://tally.so/widgets/embed.js"></script>
 </head>
 
 <body>
 
-<!-- Background -->
-<canvas id="bg"></canvas>
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main Navigation">
+      <a href="/" class="nav-brand">
+        <span class="brand-avatar">AY</span>
+        <span>Ankit Yadav</span>
+      </a>
 
-  <!-- Navbar -->
-<div id="navbar" class="component"></div>
+      <div class="nav-actions">
+        <a href="/notes/Mtech/" class="btn-resume">
+          <span>&larr; M.Tech Archive</span>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-<!-- CONTENT -->
-<div class="container">
+  <!-- Content -->
+  <main class="site-wrapper" style="padding-top: 120px; min-height: 70vh;">
+    <div class="section-header">
+      <span class="section-tag">ISI Kolkata &middot; 2nd Semester</span>
+      <h1 class="section-title">2nd Semester Courses</h1>
+      <p class="section-description">Select a course to view or download lecture notes, slides, and references.</p>
+    </div>
 
-  <div class="card">
-    <h2>MTech 2nd Sem</h2>
-  </div>
+    <div class="workshops-grid" style="margin-top: 24px;">
+      
+      <!-- ML-I -->
+      <a href="ML-I/" class="card-modern" style="text-decoration: none; color: inherit; display: block;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <span class="badge-pill topic">Core Course</span>
+          <span style="color: var(--accent-cyan); font-family: var(--font-mono);">&rarr;</span>
+        </div>
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Machine Learning-I</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Course lectures, probabilistic formulations, loss functions, optimization, and foundational learning algorithms.</p>
+      </a>
 
-  <div class="table-container">
-    <table class="table">
-	<tr>
-	<td><a href="ML-I/index.html">Machine Learning-I</a></td>
-	</tr>
-	<tr>
-	<td><a href="OS/index.html">OS</a></td>
-	</tr>	
+      <!-- OS -->
+      <a href="OS/" class="card-modern" style="text-decoration: none; color: inherit; display: block;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <span class="badge-pill topic">Systems</span>
+          <span style="color: var(--accent-cyan); font-family: var(--font-mono);">&rarr;</span>
+        </div>
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Operating Systems</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">22 lectures on process management, concurrency, virtual memory, scheduling algorithms, and storage architecture.</p>
+      </a>
 
-     </table>
-  </div>
+      <!-- DBMS -->
+      <a href="DBMS/" class="card-modern" style="text-decoration: none; color: inherit; display: block;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <span class="badge-pill topic">Data Systems</span>
+          <span style="color: var(--accent-cyan); font-family: var(--font-mono);">&rarr;</span>
+        </div>
+        <h2 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Database Management Systems</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Relational model, SQL fundamentals, B+ Trees indexing, query optimization, normalization, and ACID transactions.</p>
+      </a>
 
-  <!--------------
-	<button onclick="openTally()">Upload Files</button>
-	-------->
+    </div>
+  </main>
 
-</div>
-
-<!-- Footer -->
-  <div id="footer"></div>
-
-  <!-- Scripts -->
-<script src="/js/include.js"></script>
-
-<!-- Feature scripts -->
-<script src="/js/navbar.js"></script>
-<script src="/js/background.js"></script>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-wrapper footer-content">
+      <div class="footer-left">
+        <p>&copy; 2026 Ankit Yadav. M.Tech CS Materials.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/" class="footer-link">Portfolio</a>
+        <a href="/notes/" class="footer-link">Notes</a>
+        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
