@@ -1,0 +1,211 @@
+/*
+ * base.css
+ * ─────────────────────────────────────────────────────────────
+ * Purpose: CSS custom properties, minimal reset, body layout,
+ *          sidebar geometry, and typographic baseline.
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* ── Custom Properties ─────────────────────────────────────── */
+:root {
+  /* Colors */
+  --color-bg:         #0f1b2d;       /* light-dark blue background */
+  --color-text:       #e2e8f0;       /* off-white text for contrast */
+  --color-secondary:  #94a3b8;       /* muted slate for secondary text */
+  --color-accent:     #60a5fa;       /* lighter blue accent for dark bg */
+  --color-border:     #1e3a5f;       /* subtle dark-blue hairline */
+
+  /* Typography */
+  --font-serif:       'Georgia', 'Times New Roman', serif;
+  --font-sans:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:        'SF Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Sizing */
+  --sidebar-width:    220px;
+  --content-max:      760px;
+  --section-gap:      4rem;
+  --base-size:        1rem;       /* 16px */
+  --line-height:      1.7;
+}
+
+/* ── Minimal Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--base-size);
+  line-height: var(--line-height);
+  display: flex;
+  flex-direction: column;  /* no sidebar — single column */
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+
+/* ── Top Nav — fixed so it stays visible on scroll ─────────── */
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(15, 27, 45, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 52px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.topnav.scrolled {
+  background-color: rgba(15, 27, 45, 0.97);
+  border-color: var(--color-border);
+}
+
+/* Spacer — height is overridden by JS to match actual nav height */
+#site-header {
+  height: 52px;
+}
+
+.nav-name {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: var(--color-text);
+  white-space: nowrap;
+  margin-right: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+.cv-link {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.cv-link:hover {
+  border-color: var(--color-accent);
+}
+
+/* ── Main Content Area ─────────────────────────────────────── */
+.main-content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 860px;
+  padding: 3rem 2rem 6rem;   /* 3rem top keeps breathing room below fixed nav */
+}
+
+/* ── Sections ──────────────────────────────────────────────── */
+.section {
+  max-width: var(--content-max);
+  padding-bottom: var(--section-gap);
+  margin-bottom: var(--section-gap);
+  border-bottom: 1px solid var(--color-border);
+  /* Fix: anchor links land correctly below the fixed nav (52px + 16px gap) */
+  scroll-margin-top: 72px;
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+/* ── About ─────────────────────────────────────────────────── */
+.about-name {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+}
+
+.about-tagline {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  max-width: 600px;
+  margin-bottom: 1.25rem;
+}
+
+/* Contact row */
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.contact-item {
+  color: var(--color-secondary);
+}
+
+.contact-item:hover {
+  color: var(--color-accent);
+}
+
+.contact-sep {
+  color: var(--color-border);
+  margin: 0 0.4rem;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.site-footer {
+  max-width: var(--content-max);
+  padding-top: 2rem;
+  font-size: 0.78rem;
+  color: var(--color-secondary);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-copy {
+  margin-top: 0.25rem;
+  color: var(--color-border);
+}

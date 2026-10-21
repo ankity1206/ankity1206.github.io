@@ -1,689 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Ankit Yadav | Academic & Research Portfolio</title>
-  <meta name="description" content="Personal academic website of Ankit Yadav, MTech CS student at ISI Kolkata. Researching quantum computation, post-quantum cryptography, and theoretical computer science.">
-  <meta name="keywords" content="Ankit Yadav, ISI Kolkata, MTech CS, IIT Bombay, MSc Mathematics, quantum computation, post-quantum cryptography, DRDO, theoretical computer science">
-  <meta name="author" content="Ankit Yadav">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ankit Yadav — M.Tech. CS student at ISI Kolkata. Research in cryptography, quantum computing, and algorithms." />
+  <title>Ankit Yadav</title>
 
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ankity1206.github.io/">
-  <meta property="og:title" content="Ankit Yadav | Academic & Research Portfolio">
-  <meta property="og:description" content="MTech CS student at ISI Kolkata exploring quantum computation, post-quantum cryptography, and computer science.">
-  <meta property="og:image" content="https://ankity1206.github.io/images/preview.jpeg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data/favicon.png" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://ankity1206.github.io/">
-  <meta name="twitter:title" content="Ankit Yadav | Academic & Research Portfolio">
-  <meta name="twitter:description" content="MTech CS student at ISI Kolkata exploring quantum computation, post-quantum cryptography, and computer science.">
-  <meta name="twitter:image" content="https://ankity1206.github.io/images/preview.jpeg">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="alternate icon" href="/favicon.ico">
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ankit Yadav",
-    "url": "https://ankity1206.github.io/",
-    "jobTitle": "MTech CS Student",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Indian Statistical Institute Kolkata"
-    },
-    "alumniOf": [
-      {
-        "@type": "CollegeOrUniversity",
-        "name": "Indian Institute of Technology Bombay"
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        "name": "Indira Gandhi University, Haryana"
-      }
-    ],
-    "sameAs": [
-      "https://github.com/ankity1206",
-      "https://www.linkedin.com/in/ankit-yadav-397a83149"
-    ],
-    "knowsAbout": [
-      "Quantum Computation",
-      "Post-Quantum Cryptography",
-      "Lattice-based Cryptography",
-      "Operating Systems",
-      "Algorithms",
-      "Theoretical Computer Science"
-    ]
-  }
-  </script>
-
-  <link rel="stylesheet" href="/css/style.css">
+  <!-- Stylesheets (order matters) -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 </head>
-
 <body>
 
-  <!-- ===== SITE NAVIGATION ===== -->
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Main Navigation">
-      <a href="#about" class="nav-brand">
-        <span class="brand-avatar">AY</span>
-        <span>Ankit Yadav</span>
-      </a>
+  <!-- ═══════════════════════════════════════════
+       HEADER — injected by js/components.js
+  ═══════════════════════════════════════════ -->
+  <div id="site-header"></div>
 
-      <button class="mobile-nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
+  <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════════ -->
+  <main class="main-content">
 
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#about" class="nav-link active">About</a></li>
-        <li><a href="#education" class="nav-link">Education</a></li>
-        <li><a href="#research" class="nav-link">DRDO Project</a></li>
-        <li><a href="#workshops" class="nav-link">Workshops</a></li>
-        <li><a href="#repositories" class="nav-link">Repositories</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+    <!-- ── ABOUT ─────────────────────────────── -->
+    <section id="about" class="section">
+      <h1 class="about-name">Ankit Yadav</h1>
+      <p class="about-tagline">
+       Hi, I am an M.Tech. Computer Science student at ISI, Kolkata.
+      <!--  Interested in post-quantum cryptography, quantum computing, and randomized algorithms.
+      --->
+	</p>
+
+<!---
+      <div class="contact-list">
+        <a href="mailto:cs2501@isical.ac.in" class="contact-item">cs2501@isical.ac.in</a>
+        <span class="contact-sep">·</span>
+        <a href="mailto:hak171562@gmail.com" class="contact-item">hak171562@gmail.com</a>
+        <span class="contact-sep">·</span>
+        <span class="contact-item">+91 8901847295</span>
+        <span class="contact-sep">·</span>
+        <a href="https://github.com/ankity1206" target="_blank" rel="noopener" class="contact-item">GitHub ↗</a>
+      </div>
+
+      <div class="achievements">
+        <h2 class="section-title">Achievements &amp; Fellowships</h2>
+        <ul class="plain-list">
+          <li>All India Rank <strong>88</strong> in IIT JAM Mathematics</li>
+          <li><strong>90.35 percentile</strong> in IIT JAM Statistics</li>
+          <li>Merit-cum-Means Scholarship during M.Sc. at IIT Bombay</li>
+        </ul>
+      </div>
+--->
+    </section>
+	
+    <!-- ── EDUCATION ──────────────────────────── -->
+    <section id="education" class="section">
+      <h2 class="section-title">Education</h2>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <div class="timeline-year">2025–27</div>
+          <div class="timeline-body">
+            <div class="timeline-degree">M.Tech. Computer Science</div>
+            <div class="timeline-inst">Indian Statistical Institute, Kolkata</div>
+<!---
+            <div class="timeline-meta">CGPA: 6.1</div>
+            <div class="course-section">
+              <span class="course-label">Relevant Courses:</span>
+              <span class="tag">Discrete Mathematics</span>
+              <span class="tag">Automata Theory</span>
+              <span class="tag">Operating System</span>
+              <span class="tag">Computer Organization</span>
+              <span class="tag">Randomized &amp; Approximation Algorithms</span>
+              <span class="tag">Quantum Computing</span>
+              <span class="tag">Statistical Methods</span>
+            </div>
+--->
+	     </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-year">2022–24</div>
+          <div class="timeline-body">
+            <div class="timeline-degree">M.Sc. Mathematics</div>
+            <div class="timeline-inst">IIT, Bombay</div>
+<!---
+            <div class="timeline-meta">CGPA: 6.07</div>
+            <div class="course-section">
+              <span class="course-label">Relevant Courses:</span>
+              <span class="tag">Linear Algebra</span>
+              <span class="tag">Basic Algebra</span>
+              <span class="tag">Algebra-I</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">Introduction to Fourier Analysis</span>
+            </div>
+---->
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-year">2018–21</div>
+          <div class="timeline-body">
+            <div class="timeline-degree">B.Sc. Mathematics</div>
+            <div class="timeline-inst">IGU, Rewari</div>
+<!---
+            <div class="timeline-meta">69.84%</div>
+--->
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ── RESEARCH ───────────────────────────── -->
+    <section id="research" class="section">
+      <h2 class="section-title">Research Experience</h2>
+
+      <article class="project-card">
+        <h3 class="card-title">Analysis of CRYSTALS-Dilithium, qTESLA and FALCON</h3>
+        <div class="card-meta">
+          <span class="card-guides">Guides: <a href="https://sites.google.com/site/sartajulhasan/" target="_blank" rel="noopener noreferrer">Dr. Sartaj Ul Hasan</a> &amp; <a href="https://iitjammu.ac.in/faculty/~sumitkpandey" target="_blank" rel="noopener noreferrer">Dr. Sumit Kumar Pandey</a>, IIT Jammu</span>
+          <span class="tag tag-inline">DRDO Funded</span>
+          <span class="tag tag-inline">2024-25</span>
+        </div>
+<!--
+        <ul class="plain-list">
+          <li>
+            Reproduced published solutions for specific instances of the LWE challenge
+            and evaluated their solvability under relaxed boundary conditions.
+          </li>
+          <li>
+            Experimentally validated key-recovery attack on reduced-parameter variants
+            of FALCON and Module-FALCON.
+          </li>
+        </ul>
+---> 
+     </article>
+
+    </section>
+
+
+    <!-- ── SKILLS ─────────────────────────────── -->
+<!--
+    <section id="skills" class="section">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <div class="skill-group-label">Programming Languages</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">C</span>
+            <span class="tag">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-label">Python Libraries</div>
+          <div class="skill-tags">
+            <span class="tag">SciPy</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Qiskit</span>
+            <span class="tag">Stim</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Pandas</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+--->
+
+    <!-- ── SEMINARS ───────────────────────────── -->
+    <section id="seminars" class="section">
+      <h2 class="section-title">Seminars &amp; Workshops</h2>
+      <ul class="seminar-list">
+        <li class="seminar-item">
+          <div class="seminar-name">ISEA Webinar 2025</div>
+          <div class="seminar-details">
+            <span class="seminar-place">ISI Kolkata</span>
+            <span class="seminar-org">Ministry of Electronics and Information Technology</span>
+          </div>
+        </li>
+        <li class="seminar-item">
+          <div class="seminar-name">Topics in Advanced Areas of Cryptology (TAAC) 2026</div>
+          <div class="seminar-details">
+            <span class="seminar-place">ISI Kolkata</span>
+            <span class="seminar-org">DRDO</span>
+          </div>
+        </li>
+        <li class="seminar-item">
+          <div class="seminar-name"><a href="https://artcs.iitm.ac.in/event/theory-fest" target="_blank" rel="noopener noreferrer" > Theory Fest</a> 2026</div>
+          <div class="seminar-details">
+            <span class="seminar-place">Arvind Raghunathan Center for Theoretical Computer Science</span>
+            <span class="seminar-org">IIT Madras</span>
+          </div>
+        </li>
+        <li class="seminar-item">
+          <div class="seminar-name"><a href="https://sites.google.com/view/nsqif26" target="_blank" rel="noopener noreferrer" >NSQIF</a> 2026</div>
+          <div class="seminar-details">
+            <span class="seminar-place">ISI Kolkata</span>
+            <span class="seminar-org">PAMU, ISI</span>
+          </div>
+        </li>
+	<li class="seminar-item">
+          <div class="seminar-name"><a href="https://sites.google.com/view/scqif26" target="_blank" rel="noopener noreferrer" >SCQIF</a> 2026</div>
+          <div class="seminar-details">
+            <span class="seminar-place">ISI Kolkata</span>
+            <span class="seminar-org">PAMU, ISI</span>
+          </div>
+        </li>
+
       </ul>
 
-      <div class="nav-actions">
-        <a href="/data/Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-resume">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="12" y1="18" x2="12" y2="12"></line>
-            <line x1="9" y1="15" x2="12" y2="18"></line>
-            <line x1="15" y1="15" x2="12" y2="18"></line>
-          </svg>
-          <span>Resume</span>
-        </a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- ===== MAIN CONTENT WRAPPER ===== -->
-  <main class="site-wrapper">
-
-    <!-- ===== HERO / ABOUT SECTION ===== -->
-    <section class="hero-section" id="about">
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span>M.Tech CS @ ISI Kolkata</span>
-      </div>
-
-      <h1 class="hero-title">
-        Hi, I'm <span class="gradient-text">Ankit Yadav</span>.
-      </h1>
-
-      <p class="hero-lead">
-        Currently pursuing my <strong>M.Tech in Computer Science</strong> at the <strong>Indian Statistical Institute (ISI), Kolkata</strong>. 
-        Previously, I completed my <strong>M.Sc. in Mathematics</strong> at <strong>IIT Bombay</strong>.
-      </p>
-
-      <div class="hero-quote">
-        “Confused at the gates of quantum computation.”
-      </div>
-
-      <p class="hero-lead" style="font-size: 1rem; margin-top: -10px; margin-bottom: 28px;">
-        My research and technical interests lie at the intersection of <strong>Quantum Computation</strong>, 
-        <strong>Post-Quantum Cryptography</strong> (specifically lattice-based schemes), <strong>Operating Systems</strong>, 
-        and <strong>Theoretical Computer Science</strong>.
-      </p>
-
-      <div class="hero-ctas">
-        <a href="/data/Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          <span>Download CV</span>
-        </a>
-
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-          </svg>
-          <span>GitHub</span>
-        </a>
-
-        <a href="mailto:ispacefun@gmail.com" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-            <polyline points="22,6 12,13 2,6"></polyline>
-          </svg>
-          <span>Email Me</span>
-        </a>
-
-        <div class="social-links" style="margin-left: 6px;">
-          <a href="https://www.linkedin.com/in/ankit-yadav-397a83149" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-        </div>
-      </div>
     </section>
 
-    <!-- ===== EDUCATION SECTION ===== -->
-    <section class="section" id="education">
-      <div class="section-header">
-        <span class="section-tag">Background</span>
-        <h2 class="section-title">Education</h2>
-        <p class="section-description">Academic journey spanning mathematics and theoretical computer science.</p>
-      </div>
-
-      <div class="education-timeline">
-        
-        <!-- MTech -->
-        <article class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-year">2025 – Present</span>
-            <span class="timeline-status current">In Progress</span>
-          </div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">M.Tech. in Computer Science</h3>
-            <p class="timeline-institution">Indian Statistical Institute (ISI), Kolkata</p>
-            <p class="timeline-details">
-              Coursework & research in algorithms, database management systems, advanced operating systems, machine learning, and quantum computation.
-            </p>
-          </div>
-        </article>
-
-        <!-- MSc -->
-        <article class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-year">2022 – 2024</span>
-            <span class="timeline-status">Completed</span>
-          </div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">M.Sc. in Mathematics</h3>
-            <p class="timeline-institution">Indian Institute of Technology (IIT) Bombay</p>
-            <p class="timeline-details">
-              Rigorous grounding in pure mathematics, including abstract algebra, topology, real & complex analysis, combinatorics, and discrete mathematics.
-            </p>
-          </div>
-        </article>
-
-        <!-- BSc -->
-        <article class="timeline-item">
-          <div class="timeline-meta">
-            <span class="timeline-year">2018 – 2021</span>
-            <span class="timeline-status">Completed</span>
-          </div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">B.Sc. (Hons.) in Mathematics</h3>
-            <p class="timeline-institution">Indira Gandhi University (IGU), Haryana</p>
-            <p class="timeline-details">
-              Core mathematical disciplines, linear algebra, calculus, and mathematical modeling foundations. <em>(Covid Batch)</em>
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ===== DRDO PROJECT SECTION ===== -->
-    <section class="section" id="research">
-      <div class="section-header">
-        <span class="section-tag">Research Project</span>
-        <h2 class="section-title">DRDO Project</h2>
-        <p class="section-description">Funded cryptanalysis project on lattice-based post-quantum cryptography.</p>
-      </div>
-
-      <div class="featured-research-card">
-        <div class="research-badge-row">
-          <span class="badge-pill drdo">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            DRDO Funded
-          </span>
-          <span class="badge-pill topic">Post-Quantum Cryptography</span>
-          <span class="badge-pill topic">NIST PQC Standards</span>
-        </div>
-
-        <h3 class="research-title">
-          Analysis of NIST's Lattice-based PQC Digital Signatures
-        </h3>
-
-        <div class="research-mentors">
-          Under the guidance of 
-          <a href="https://sites.google.com/site/sartajulhasan/" target="_blank" rel="noopener noreferrer">Prof. Sartaj Ul Hasan</a> 
-          and 
-          <a href="https://iitjammu.ac.in/computer_science_engineering/faculty-list/~sumitkpandey" target="_blank" rel="noopener noreferrer">Prof. Sumit Kumar Pandey</a>.
-        </div>
-
-        <p class="research-description">
-          Investigated mathematical foundations, security bounds, and algorithmic performance of candidate lattice-based 
-          digital signature schemes submitted to the NIST Post-Quantum Cryptography (PQC) standardization process. 
-          The project evaluated signature verification efficiency, key generation mechanics, and underlying hard lattice 
-          problems (such as Module-LWE and Shortest Vector Problem variants) against classical and quantum reduction strategies.
-        </p>
-
-        <div class="research-meta-tags">
-          <span class="meta-chip">Lattice Cryptanalysis</span>
-          <span class="meta-chip">Module-LWE / SIS</span>
-          <span class="meta-chip">Digital Signatures</span>
-          <span class="meta-chip">Shortest Vector Problem (SVP)</span>
-          <span class="meta-chip">Defence R&D</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== WORKSHOPS SECTION ===== -->
-    <section class="section" id="workshops">
-      <div class="section-header">
-        <span class="section-tag">Academic Activities</span>
-        <h2 class="section-title">Workshops & Seminars</h2>
-        <p class="section-description">Workshops, symposia, and academic conferences attended.</p>
-      </div>
-
-      <div class="workshops-grid">
-        
-        <div class="card-modern workshop-card">
-          <div class="workshop-top">
-            <span class="workshop-badge">Theoretical CS</span>
-            <h3 class="workshop-name">Theory Day</h3>
-            <div class="workshop-venue">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Arvind Raghunathan Center for TCS, IIT Madras</span>
-            </div>
-          </div>
-          <div class="workshop-sponsor">Academic Conference</div>
-        </div>
-
-        <div class="card-modern workshop-card">
-          <div class="workshop-top">
-            <span class="workshop-badge">Quantum Information</span>
-            <h3 class="workshop-name">National Symposium on Quantum Information and Foundations</h3>
-            <div class="workshop-venue">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Indian Statistical Institute (ISI), Kolkata</span>
-            </div>
-          </div>
-          <div class="workshop-sponsor">National Symposium</div>
-        </div>
-
-        <div class="card-modern workshop-card">
-          <div class="workshop-top">
-            <span class="workshop-badge">Cryptology</span>
-            <h3 class="workshop-name">Topics and Advanced Areas of Cryptology (TAAC)</h3>
-            <div class="workshop-venue">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Indian Statistical Institute (ISI), Kolkata</span>
-            </div>
-          </div>
-          <div class="workshop-sponsor">Held under the aegis of DRDO</div>
-        </div>
-
-        <div class="card-modern workshop-card">
-          <div class="workshop-top">
-            <span class="workshop-badge">Security & Lattice PQC</span>
-            <h3 class="workshop-name">ISEA Lattice-based Cryptography in Mobile Device Security</h3>
-            <div class="workshop-venue">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>IIT Jammu</span>
-            </div>
-          </div>
-          <div class="workshop-sponsor">Under the aegis of Ministry of Electronics & IT (MeitY)</div>
-        </div>
-
-        <div class="card-modern workshop-card">
-          <div class="workshop-top">
-            <span class="workshop-badge">Cybersecurity</span>
-            <h3 class="workshop-name">ISEA Information Security Webinar</h3>
-            <div class="workshop-venue">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Indian Statistical Institute (ISI), Kolkata</span>
-            </div>
-          </div>
-          <div class="workshop-sponsor">Under the aegis of Ministry of Electronics & IT (MeitY)</div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===== GITHUB REPOSITORIES SECTION ===== -->
-    <section class="section" id="repositories">
-      <div class="section-header">
-        <span class="section-tag">Open Source & Code</span>
-        <h2 class="section-title">GitHub Repositories</h2>
-        <p class="section-description">A curated selection of projects, course labs, and experimental implementations.</p>
-      </div>
-
-      <!-- 
-        ========================================================================
-        HOW TO EDIT OR ADD REPOSITORIES:
-        - Copy and paste any .repo-card article below.
-        - Update the href to your repository link (e.g., https://github.com/ankity1206/my-repo).
-        - Update .repo-name, .repo-desc, and the language tag (.lang-dot and .repo-lang).
-        ========================================================================
-      -->
-      <div class="repos-grid">
-
-        <!-- REPO 1 (Real): Some Linux Commands -->
-        <a href="https://github.com/ankity1206/some-commands-for-ubuntu-20.04" target="_blank" rel="noopener noreferrer" class="card-modern repo-card">
-          <div class="repo-card-top">
-            <div class="repo-header">
-              <div class="repo-name-wrap">
-                <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span class="repo-name">some-commands-for-ubuntu</span>
-              </div>
-              <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-            <p class="repo-desc">
-              Curated collection of practical Linux commands, package installations, bash utilities, and setup guides for Ubuntu.
-            </p>
-          </div>
-          <div class="repo-footer">
-            <div class="repo-lang">
-              <span class="lang-dot shell"></span>
-              <span>Shell</span>
-            </div>
-            <span class="repo-tag">Linux / DevOps</span>
-          </div>
-        </a>
-
-        <!-- REPO 2 (Placeholder): Lattice Cryptography -->
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="card-modern repo-card">
-          <div class="repo-card-top">
-            <div class="repo-header">
-              <div class="repo-name-wrap">
-                <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span class="repo-name">pqc-lattice-signatures</span>
-              </div>
-              <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-            <p class="repo-desc">
-              Implementations and parameter evaluation routines for lattice-based post-quantum signature schemes (Dilithium / Falcon).
-            </p>
-          </div>
-          <div class="repo-footer">
-            <div class="repo-lang">
-              <span class="lang-dot cpp"></span>
-              <span>C++</span>
-            </div>
-            <span class="repo-tag">Cryptography</span>
-          </div>
-        </a>
-
-        <!-- REPO 3 (Placeholder): xv6 RISC-V Labs -->
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="card-modern repo-card">
-          <div class="repo-card-top">
-            <div class="repo-header">
-              <div class="repo-name-wrap">
-                <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span class="repo-name">xv6-riscv-experiments</span>
-              </div>
-              <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-            <p class="repo-desc">
-              Kernel extensions on MIT's xv6 operating system: custom syscalls, memory page allocator, and priority-based process scheduler.
-            </p>
-          </div>
-          <div class="repo-footer">
-            <div class="repo-lang">
-              <span class="lang-dot c"></span>
-              <span>C</span>
-            </div>
-            <span class="repo-tag">Operating Systems</span>
-          </div>
-        </a>
-
-        <!-- REPO 4 (Placeholder): Quantum Circuits -->
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="card-modern repo-card">
-          <div class="repo-card-top">
-            <div class="repo-header">
-              <div class="repo-name-wrap">
-                <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span class="repo-name">quantum-circuits-sim</span>
-              </div>
-              <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-            <p class="repo-desc">
-              Statevector simulation experiments of quantum gates, Deutsch-Jozsa algorithm, Grover's search, and quantum phase estimation.
-            </p>
-          </div>
-          <div class="repo-footer">
-            <div class="repo-lang">
-              <span class="lang-dot python"></span>
-              <span>Python</span>
-            </div>
-            <span class="repo-tag">Quantum Computing</span>
-          </div>
-        </a>
-
-        <!-- REPO 5 (Placeholder): Machine Learning Foundations -->
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="card-modern repo-card">
-          <div class="repo-card-top">
-            <div class="repo-header">
-              <div class="repo-name-wrap">
-                <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span class="repo-name">ml-foundations-code</span>
-              </div>
-              <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-            <p class="repo-desc">
-              First-principles implementations of supervised learning models, gradient descent optimizers, and mathematical derivations.
-            </p>
-          </div>
-          <div class="repo-footer">
-            <div class="repo-lang">
-              <span class="lang-dot python"></span>
-              <span>Python</span>
-            </div>
-            <span class="repo-tag">Machine Learning</span>
-          </div>
-        </a>
-
-        <!-- REPO 6 (Placeholder): Cryptanalysis Tools -->
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="card-modern repo-card">
-          <div class="repo-card-top">
-            <div class="repo-header">
-              <div class="repo-name-wrap">
-                <svg class="repo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <span class="repo-name">lattice-reduction-tools</span>
-              </div>
-              <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </div>
-            <p class="repo-desc">
-              Scripts and benchmarks for LLL and BKZ basis reduction algorithms, sieving routines, and NTRU hardness estimation experiments.
-            </p>
-          </div>
-          <div class="repo-footer">
-            <div class="repo-lang">
-              <span class="lang-dot rust"></span>
-              <span>Rust / Sage</span>
-            </div>
-            <span class="repo-tag">Lattice Cryptanalysis</span>
-          </div>
-        </a>
-
-      </div>
-
-      <div class="repos-cta">
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-          </svg>
-          <span>View All Repositories on GitHub &rarr;</span>
-        </a>
-      </div>
-
-      <!-- Academic Notes Callout -->
-      <aside class="notes-callout">
-        <div class="notes-callout-text">
-          <h3>Looking for M.Tech Course Notes?</h3>
-          <p>Lecture slides, references, and materials for Machine Learning-I, Operating Systems, and DBMS.</p>
-        </div>
-        <a href="/notes/" class="btn-notes">
-          <span>Browse Notes Archive</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-      </aside>
-
-    </section>
-
-    <!-- ===== CONTACT SECTION ===== -->
-    <section class="section" id="contact">
-      <div class="section-header">
-        <span class="section-tag">Get in Touch</span>
-        <h2 class="section-title">Contact</h2>
-        <p class="section-description">Feel free to connect regarding research collaborations, questions, or discussions.</p>
-      </div>
-
-      <div class="workshops-grid">
-        
-        <div class="card-modern">
-          <h3 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-primary);">Email</h3>
-          <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 12px;">Primary academic & personal correspondence.</p>
-          <a href="mailto:ispacefun@gmail.com" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500; font-family: var(--font-mono); font-size: 0.92rem;">
-            ispacefun@gmail.com &rarr;
-          </a>
-        </div>
-
-        <div class="card-modern">
-          <h3 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-primary);">GitHub</h3>
-          <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 12px;">Open-source code, course repos, and experiments.</p>
-          <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500; font-family: var(--font-mono); font-size: 0.92rem;">
-            github.com/ankity1206 &rarr;
-          </a>
-        </div>
-
-        <div class="card-modern">
-          <h3 style="font-size: 1.1rem; margin-bottom: 6px; color: var(--text-primary);">LinkedIn</h3>
-          <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 12px;">Professional networking & career profile.</p>
-          <a href="https://www.linkedin.com/in/ankit-yadav-397a83149" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none; font-weight: 500; font-family: var(--font-mono); font-size: 0.92rem;">
-            ankit-yadav-397a83149 &rarr;
-          </a>
-        </div>
-
-      </div>
-    </section>
+    <!-- ── FOOTER — injected by js/components.js ── -->
+    <div id="site-footer"></div>
 
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer">
-    <div class="site-wrapper footer-content">
-      <div class="footer-left">
-        <p>&copy; 2026 Ankit Yadav. Built with clean HTML &amp; CSS.</p>
-      </div>
-      <div class="footer-links">
-        <a href="#about" class="footer-link">Back to Top</a>
-        <a href="/data/Resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">Resume</a>
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
-        <a href="mailto:ispacefun@gmail.com" class="footer-link">Email</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== MINIMAL SCRIPT: Active section spy & Mobile toggle ===== -->
-  <script>
-    // Mobile navigation toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (navToggle && navMenu) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('open');
-        navToggle.setAttribute('aria-expanded', isOpen);
-      });
-
-      // Close menu when clicking any nav link
-      navMenu.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          navMenu.classList.remove('open');
-          navToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
-    // Scroll spy for active navbar link
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    window.addEventListener('scroll', () => {
-      let currentSection = '';
-      const scrollY = window.pageYOffset;
-
-      sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 120;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-          currentSection = sectionId;
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
-        }
-      });
-    }, { passive: true });
-  </script>
-
+  <!-- Scripts: components first (renders header/footer), then data, then behaviour -->
+  <script src="js/components.js"></script>
+  <script src="data/resume.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
