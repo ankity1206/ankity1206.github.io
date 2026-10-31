@@ -1,240 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ankit Yadav — M.Tech. CS student at ISI Kolkata. Research in cryptography, quantum computing, and algorithms." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ankit Yadav — M.Tech. CS student at ISI Kolkata. Research in cryptography, quantum computing, and algorithms.">
   <title>Ankit Yadav</title>
+  <link rel="icon" type="image/png" href="data/favicon.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="data/favicon.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <!-- Apply saved/system theme before first paint -->
+  <script src="js/theme-init.js"></script>
 
   <!-- Stylesheets (order matters) -->
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       HEADER — injected by js/components.js
-  ═══════════════════════════════════════════ -->
+  <!-- Header: injected by js/components.js -->
   <div id="site-header"></div>
 
-  <!-- ═══════════════════════════════════════════
-       MAIN CONTENT
-  ═══════════════════════════════════════════ -->
-  <main class="main-content">
+  <main>
+    <h1>Ankit Yadav</h1>
+    <p class="lead">
+      Hi, I am an M.Tech. Computer Science student at the Indian Statistical
+      Institute (ISI), Kolkata.
+    </p>
 
-    <!-- ── ABOUT ─────────────────────────────── -->
-    <section id="about" class="section">
-      <h1 class="about-name">Ankit Yadav</h1>
-      <p class="about-tagline">
-       Hi, I am an M.Tech. Computer Science student at ISI, Kolkata.
-      <!--  Interested in post-quantum cryptography, quantum computing, and randomized algorithms.
-      --->
-	</p>
-
-<!---
-      <div class="contact-list">
-        <a href="mailto:cs2501@isical.ac.in" class="contact-item">cs2501@isical.ac.in</a>
-        <span class="contact-sep">·</span>
-        <a href="mailto:hak171562@gmail.com" class="contact-item">hak171562@gmail.com</a>
-        <span class="contact-sep">·</span>
-        <span class="contact-item">+91 8901847295</span>
-        <span class="contact-sep">·</span>
-        <a href="https://github.com/ankity1206" target="_blank" rel="noopener" class="contact-item">GitHub ↗</a>
-      </div>
-
-      <div class="achievements">
-        <h2 class="section-title">Achievements &amp; Fellowships</h2>
-        <ul class="plain-list">
-          <li>All India Rank <strong>88</strong> in IIT JAM Mathematics</li>
-          <li><strong>90.35 percentile</strong> in IIT JAM Statistics</li>
-          <li>Merit-cum-Means Scholarship during M.Sc. at IIT Bombay</li>
-        </ul>
-      </div>
---->
-    </section>
-	
-    <!-- ── EDUCATION ──────────────────────────── -->
-    <section id="education" class="section">
-      <h2 class="section-title">Education</h2>
-
-      <div class="timeline">
-
-        <article class="timeline-item">
-          <div class="timeline-year">2025–27</div>
-          <div class="timeline-body">
-            <div class="timeline-degree">M.Tech. Computer Science</div>
-            <div class="timeline-inst">Indian Statistical Institute, Kolkata</div>
-<!---
-            <div class="timeline-meta">CGPA: 6.1</div>
-            <div class="course-section">
-              <span class="course-label">Relevant Courses:</span>
-              <span class="tag">Discrete Mathematics</span>
-              <span class="tag">Automata Theory</span>
-              <span class="tag">Operating System</span>
-              <span class="tag">Computer Organization</span>
-              <span class="tag">Randomized &amp; Approximation Algorithms</span>
-              <span class="tag">Quantum Computing</span>
-              <span class="tag">Statistical Methods</span>
-            </div>
---->
-	     </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-year">2022–24</div>
-          <div class="timeline-body">
-            <div class="timeline-degree">M.Sc. Mathematics</div>
-            <div class="timeline-inst">IIT, Bombay</div>
-<!---
-            <div class="timeline-meta">CGPA: 6.07</div>
-            <div class="course-section">
-              <span class="course-label">Relevant Courses:</span>
-              <span class="tag">Linear Algebra</span>
-              <span class="tag">Basic Algebra</span>
-              <span class="tag">Algebra-I</span>
-              <span class="tag">Optimization</span>
-              <span class="tag">Introduction to Fourier Analysis</span>
-            </div>
----->
-          </div>
-        </article>
-
-        <article class="timeline-item">
-          <div class="timeline-year">2018–21</div>
-          <div class="timeline-body">
-            <div class="timeline-degree">B.Sc. Mathematics</div>
-            <div class="timeline-inst">IGU, Rewari</div>
-<!---
-            <div class="timeline-meta">69.84%</div>
---->
-          </div>
-        </article>
-
-      </div>
+    <section>
+      <h2>Research interests</h2>
+      <p>Cryptography, quantum computing, and algorithms.</p>
+      <p>
+        I have worked on an analysis of the lattice-based signature schemes
+        CRYSTALS-Dilithium, qTESLA and FALCON. Details are on the
+        <a href="research.html">research page</a>.
+      </p>
     </section>
 
-    <!-- ── RESEARCH ───────────────────────────── -->
-    <section id="research" class="section">
-      <h2 class="section-title">Research Experience</h2>
-
-      <article class="project-card">
-        <h3 class="card-title">Analysis of CRYSTALS-Dilithium, qTESLA and FALCON</h3>
-        <div class="card-meta">
-          <span class="card-guides">Guides: <a href="https://sites.google.com/site/sartajulhasan/" target="_blank" rel="noopener noreferrer">Dr. Sartaj Ul Hasan</a> &amp; <a href="https://iitjammu.ac.in/faculty/~sumitkpandey" target="_blank" rel="noopener noreferrer">Dr. Sumit Kumar Pandey</a>, IIT Jammu</span>
-          <span class="tag tag-inline">DRDO Funded</span>
-          <span class="tag tag-inline">2024-25</span>
-        </div>
-<!--
-        <ul class="plain-list">
-          <li>
-            Reproduced published solutions for specific instances of the LWE challenge
-            and evaluated their solvability under relaxed boundary conditions.
-          </li>
-          <li>
-            Experimentally validated key-recovery attack on reduced-parameter variants
-            of FALCON and Module-FALCON.
-          </li>
-        </ul>
----> 
-     </article>
-
-    </section>
-
-
-    <!-- ── SKILLS ─────────────────────────────── -->
-<!--
-    <section id="skills" class="section">
-      <h2 class="section-title">Skills</h2>
-
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <div class="skill-group-label">Programming Languages</div>
-          <div class="skill-tags">
-            <span class="tag">Python</span>
-            <span class="tag">C</span>
-            <span class="tag">SQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-label">Python Libraries</div>
-          <div class="skill-tags">
-            <span class="tag">SciPy</span>
-            <span class="tag">PyTorch</span>
-            <span class="tag">Qiskit</span>
-            <span class="tag">Stim</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Pandas</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
---->
-
-    <!-- ── SEMINARS ───────────────────────────── -->
-    <section id="seminars" class="section">
-      <h2 class="section-title">Seminars &amp; Workshops</h2>
-      <ul class="seminar-list">
-        <li class="seminar-item">
-          <div class="seminar-name">ISEA Webinar 2025</div>
-          <div class="seminar-details">
-            <span class="seminar-place">ISI Kolkata</span>
-            <span class="seminar-org">Ministry of Electronics and Information Technology</span>
-          </div>
-        </li>
-        <li class="seminar-item">
-          <div class="seminar-name">Topics in Advanced Areas of Cryptology (TAAC) 2026</div>
-          <div class="seminar-details">
-            <span class="seminar-place">ISI Kolkata</span>
-            <span class="seminar-org">DRDO</span>
-          </div>
-        </li>
-        <li class="seminar-item">
-          <div class="seminar-name"><a href="https://artcs.iitm.ac.in/event/theory-fest" target="_blank" rel="noopener noreferrer" > Theory Fest</a> 2026</div>
-          <div class="seminar-details">
-            <span class="seminar-place">Arvind Raghunathan Center for Theoretical Computer Science</span>
-            <span class="seminar-org">IIT Madras</span>
-          </div>
-        </li>
-        <li class="seminar-item">
-          <div class="seminar-name"><a href="https://sites.google.com/view/nsqif26" target="_blank" rel="noopener noreferrer" >NSQIF</a> 2026</div>
-          <div class="seminar-details">
-            <span class="seminar-place">ISI Kolkata</span>
-            <span class="seminar-org">PAMU, ISI</span>
-          </div>
-        </li>
-	<li class="seminar-item">
-          <div class="seminar-name"><a href="https://sites.google.com/view/scqif26" target="_blank" rel="noopener noreferrer" >SCQIF</a> 2026</div>
-          <div class="seminar-details">
-            <span class="seminar-place">ISI Kolkata</span>
-            <span class="seminar-org">PAMU, ISI</span>
-          </div>
-        </li>
-
+    <section>
+      <h2>Education</h2>
+      <ul class="plain">
+        <li>M.Tech. Computer Science, Indian Statistical Institute, Kolkata (2025–27)</li>
+        <li>M.Sc. Mathematics, IIT Bombay (2022–24)</li>
+        <li>B.Sc. Mathematics, IGU, Rewari (2018–21)</li>
       </ul>
-
     </section>
-
-    <!-- ── FOOTER — injected by js/components.js ── -->
-    <div id="site-footer"></div>
-
   </main>
 
-  <!-- Scripts: components first (renders header/footer), then data, then behaviour -->
+  <!-- Footer: injected by js/components.js -->
+  <div id="site-footer"></div>
+
   <script src="js/components.js"></script>
-  <script src="data/resume.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/theme.js"></script>
 </body>
 </html>

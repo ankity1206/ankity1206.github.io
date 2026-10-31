@@ -1,0 +1,23 @@
+/* themes.css — color tokens only. Add a new theme by adding a [data-theme] block. */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:      #f6eeeb;   /* warm off-white, no pure white */
+  --bar:     #ecdcd9;   /* header/footer band */
+  --text:    #3b2b2f;   /* soft dark, not pure black */
+  --accent:  #a3304c;   /* links, buttons */
+  --visited: #76465f;
+  --border:  #a97b86;
+  --muted:   #6a565b;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:      #1a0b10;
+  --bar:     #2a1118;
+  --text:    #f5e6ea;
+  --accent:  #ff8fa8;
+  --visited: #d9a0c0;
+  --border:  #e0476f;
+  --muted:   #c9a3ad;
+}
