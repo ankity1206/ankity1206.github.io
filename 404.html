@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Page not found — Ankit Yadav</title>
+  <link rel="icon" type="image/png" href="/data/favicon.png">
+
+  <!-- GitHub Pages serves this file for any missing URL, including nested
+       paths, so every URL here is root-absolute (starts with "/"). -->
+  <script src="/js/theme-init.js"></script>
+  <link rel="stylesheet" href="/css/themes.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+  <!-- Static header (components.js uses relative links, which break on nested 404 URLs) -->
+  <header class="site-header">
+    <div class="site-title"><a href="/">Ankit Yadav</a></div>
+    <nav class="site-nav">
+      <a href="/">Home</a>
+      <a href="/research.html">Research</a>
+      <a href="/seminars.html">Seminars</a>
+    </nav>
+    <button type="button" class="theme-toggle" data-theme-toggle></button>
+  </header>
+
+  <main>
+    <h1>404: Page not found</h1>
+    <p class="lead">The page you requested does not exist.</p>
+    <p><a href="/">Go to the homepage</a></p>
+  </main>
+
+  <footer class="site-footer">&copy; <span id="year"></span> Ankit Yadav</footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="/js/theme.js"></script>
+</body>
+</html>
