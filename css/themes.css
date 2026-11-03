@@ -2,22 +2,22 @@
 :root,
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg:      #f6eeeb;   /* warm off-white, no pure white */
-  --bar:     #ecdcd9;   /* header/footer band */
-  --text:    #3b2b2f;   /* soft dark, not pure black */
-  --accent:  #a3304c;   /* links, buttons */
-  --visited: #76465f;
-  --border:  #a97b86;
-  --muted:   #6a565b;
+  --bg:      #f6f3eb;   /* warm paper parchment, minimizes glare & blue-light fatigue */
+  --bar:     #eae4d8;   /* soft warm header/footer band */
+  --text:    #2e2926;   /* deep warm espresso, easy on eyes without harsh contrast */
+  --accent:  #823746;   /* muted warm wine, comfortable reading contrast without eye strain */
+  --visited: #5e4256;   /* soft muted plum */
+  --border:  #c9c0b1;   /* gentle warm border */
+  --muted:   #685f57;   /* soft warm charcoal for secondary text */
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg:      #1a0b10;
-  --bar:     #2a1118;
-  --text:    #f5e6ea;
-  --accent:  #ff8fa8;
-  --visited: #d9a0c0;
-  --border:  #e0476f;
-  --muted:   #c9a3ad;
+  --bg:      #1a1918;   /* deep warm charcoal, replaces neon purplish-black */
+  --bar:     #242220;   /* elevated warm dark header/footer band */
+  --text:    #e6e2da;   /* soft warm off-white, high readability without glare */
+  --accent:  #d48794;   /* muted dusty rosewood, replaces neon cyberpunk pink */
+  --visited: #b48da5;   /* gentle muted heather */
+  --border:  #3e3a36;   /* subtle dark border, replaces glowing neon pink */
+  --muted:   #a19991;   /* soft warm gray for secondary details */
 }

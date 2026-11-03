@@ -3,6 +3,7 @@
 (function () {
   var SITE = {
     name: "Ankit Yadav",
+    resume: "https://drive.google.com/file/d/1fiaLy9py9AgcZHLEAY3RUhps0uBKTH_G/view?usp=sharing",
     nav: [
       { label: "Home",     href: "index.html"    },
       { label: "Research", href: "research.html" },
@@ -26,6 +27,7 @@
     return '<header class="site-header">' +
              '<div class="site-title"><a href="index.html">' + SITE.name + '</a></div>' +
              '<nav class="site-nav">' + nav + '</nav>' +
+             '<a href="' + SITE.resume + '" class="resume-btn" target="_blank" rel="noopener noreferrer">Resume</a>' +
              '<button type="button" class="theme-toggle" data-theme-toggle></button>' +
            '</header>';
   }

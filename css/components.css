@@ -20,10 +20,14 @@
   text-decoration: none;
 }
 
-/* Theme toggle button */
-.theme-toggle {
+/* Theme toggle and resume buttons */
+.theme-toggle,
+.resume-btn {
   font: inherit;
   font-size: 0.8em;
+  line-height: inherit;
+  text-decoration: none;
+  display: inline-block;
   color: var(--accent);
   background: transparent;
   border: 1px solid var(--border);
@@ -31,9 +35,19 @@
   cursor: pointer;
 }
 .theme-toggle:hover,
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible,
+.resume-btn:hover,
+.resume-btn:focus-visible {
   color: var(--bg);
   background: var(--accent);
+  text-decoration: none;
+}
+.resume-btn:visited {
+  color: var(--accent);
+}
+.resume-btn:visited:hover,
+.resume-btn:visited:focus-visible {
+  color: var(--bg);
 }
 
 /* Lists */
