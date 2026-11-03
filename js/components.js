@@ -5,7 +5,7 @@
     name: "Ankit Yadav",
     resume: "https://drive.google.com/file/d/1fiaLy9py9AgcZHLEAY3RUhps0uBKTH_G/view?usp=sharing",
     nav: [
-      { label: "Home",     href: "index.html"    },
+      { label: "Home",     href: "/"             },
       { label: "Research", href: "research.html" },
       { label: "Seminars", href: "seminars.html" }
     ],
@@ -13,9 +13,14 @@
     links: []
   };
 
+  if (location.protocol !== "file:" && location.pathname.endsWith("/index.html")) {
+    var cleanPath = location.pathname.replace(/\/index\.html$/, "/") + location.search + location.hash;
+    history.replaceState(null, "", cleanPath);
+  }
+
   function currentPage() {
     var file = location.pathname.split("/").pop();
-    return file === "" ? "index.html" : file;
+    return (file === "" || file === "index.html") ? "/" : file;
   }
 
   function renderHeader() {
@@ -25,7 +30,7 @@
       return '<a href="' + n.href + '"' + cur + '>' + n.label + '</a>';
     }).join("");
     return '<header class="site-header">' +
-             '<div class="site-title"><a href="index.html">' + SITE.name + '</a></div>' +
+             '<div class="site-title"><a href="/">' + SITE.name + '</a></div>' +
              '<nav class="site-nav">' + nav + '</nav>' +
              '<a href="' + SITE.resume + '" class="resume-btn" target="_blank" rel="noopener noreferrer">Resume</a>' +
              '<button type="button" class="theme-toggle" data-theme-toggle></button>' +
