@@ -54,8 +54,7 @@
 
 .plain { padding-left: 1.2em; margin: 0.6em 0; }
 .plain li { margin-bottom: 0.5em; }
-.entry-list { columns: 20em; column-gap: 3em; }
-.entry-list li { margin-bottom: 0.8em; break-inside: avoid; }
+.entry-list li { margin-bottom: 0.8em; }
 .detail { font-size: 0.9em; color: var(--muted); }
 
 .site-footer {
