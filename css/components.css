@@ -1,6 +1,3 @@
-/* components.css — header, footer, lists, theme button */
-
-/* Site header: full-width band */
 .site-header {
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +17,6 @@
   text-decoration: none;
 }
 
-/* Theme toggle and resume buttons */
 .theme-toggle,
 .resume-btn {
   font: inherit;
@@ -49,16 +45,19 @@
 .resume-btn:visited:focus-visible {
   color: var(--bg);
 }
+.btn-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  margin-right: 0.35em;
+}
 
-/* Lists */
 .plain { padding-left: 1.2em; margin: 0.6em 0; }
 .plain li { margin-bottom: 0.5em; }
-/* Shared by Research and Seminars: multi-column list that spreads across the page */
 .entry-list { columns: 20em; column-gap: 3em; }
 .entry-list li { margin-bottom: 0.8em; break-inside: avoid; }
 .detail { font-size: 0.9em; color: var(--muted); }
 
-/* Site footer: full-width band */
 .site-footer {
   padding: 0.7em 4vw;
   background: var(--bar);

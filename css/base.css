@@ -1,4 +1,3 @@
-/* base.css — reset, typography, page frame */
 * { box-sizing: border-box; }
 
 html { font-size: 17px; }
@@ -7,14 +6,13 @@ body {
   margin: 0;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;       /* footer stays at the bottom of the viewport */
+  flex-direction: column;
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
 }
 
-/* Content fills the full width and the remaining height */
 main {
   flex: 1;
   width: 100%;

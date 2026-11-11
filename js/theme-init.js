@@ -1,4 +1,3 @@
-/* theme-init.js — set data-theme before render. Load synchronously in <head>. */
 (function () {
   var theme = null;
   try { theme = localStorage.getItem("theme"); } catch (e) {}

@@ -1,23 +1,22 @@
-/* themes.css — color tokens only. Add a new theme by adding a [data-theme] block. */
 :root,
 :root[data-theme="light"] {
   color-scheme: light;
-  --bg:      #f6f3eb;   /* warm paper parchment, minimizes glare & blue-light fatigue */
-  --bar:     #eae4d8;   /* soft warm header/footer band */
-  --text:    #2e2926;   /* deep warm espresso, easy on eyes without harsh contrast */
-  --accent:  #823746;   /* muted warm wine, comfortable reading contrast without eye strain */
-  --visited: #5e4256;   /* soft muted plum */
-  --border:  #c9c0b1;   /* gentle warm border */
-  --muted:   #685f57;   /* soft warm charcoal for secondary text */
+  --bg:      #f6f3eb;
+  --bar:     #eae4d8;
+  --text:    #2e2926;
+  --accent:  #823746;
+  --visited: #5e4256;
+  --border:  #c9c0b1;
+  --muted:   #685f57;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg:      #1a1918;   /* deep warm charcoal, replaces neon purplish-black */
-  --bar:     #242220;   /* elevated warm dark header/footer band */
-  --text:    #e6e2da;   /* soft warm off-white, high readability without glare */
-  --accent:  #d48794;   /* muted dusty rosewood, replaces neon cyberpunk pink */
-  --visited: #b48da5;   /* gentle muted heather */
-  --border:  #3e3a36;   /* subtle dark border, replaces glowing neon pink */
-  --muted:   #a19991;   /* soft warm gray for secondary details */
+  --bg:      #1a1918;
+  --bar:     #242220;
+  --text:    #e6e2da;
+  --accent:  #d48794;
+  --visited: #b48da5;
+  --border:  #3e3a36;
+  --muted:   #a19991;
 }

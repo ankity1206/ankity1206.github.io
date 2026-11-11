@@ -1,4 +1,3 @@
-/* theme.js — toggle behaviour. Works with any element having [data-theme-toggle]. */
 (function () {
   var root = document.documentElement;
 
