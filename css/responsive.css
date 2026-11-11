@@ -1,5 +1,6 @@
-@media (max-width: 30em) {
+@media (max-width: 42em) {
   html { font-size: 16px; }
+  .site-title { margin-right: auto; }
   .site-nav { flex-basis: 100%; order: 3; }
 }
 

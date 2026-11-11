@@ -5,9 +5,9 @@
     github: "https://github.com/ankity1206",
     resume: "https://drive.google.com/file/d/1fiaLy9py9AgcZHLEAY3RUhps0uBKTH_G/view?usp=sharing",
     nav: [
-      { label: "Home",             href: "/"                     },
-      { label: "Towards Research", href: "towards-research.html" },
-      { label: "Misc",             href: "misc.html"             }
+      { label: "Home",             href: "/"                      },
+      { label: "Towards Research", href: "/towards-research.html" },
+      { label: "Misc",             href: "/misc.html"             }
     ],
     links: []
   };
@@ -19,7 +19,7 @@
 
   function currentPage() {
     var file = location.pathname.split("/").pop();
-    return (file === "" || file === "index.html") ? "/" : file;
+    return (file === "" || file === "index.html") ? "/" : "/" + file;
   }
 
   function renderHeader() {
