@@ -37,10 +37,12 @@
     return '<header class="site-header">' +
              '<div class="site-title"><a href="/">' + SITE.name + '</a></div>' +
              '<nav class="site-nav">' + nav + '</nav>' +
-             '<a href="' + SITE.email + '" class="resume-btn" aria-label="Email">' + mailIcon + '</a>' +
-             '<a href="' + SITE.github + '" class="resume-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">' + githubIcon + '</a>' +
-             '<a href="' + SITE.resume + '" class="resume-btn" target="_blank" rel="noopener noreferrer">Resume</a>' +
-             '<button type="button" class="theme-toggle" data-theme-toggle></button>' +
+             '<div class="site-actions">' +
+               '<a href="' + SITE.email + '" class="resume-btn" aria-label="Email">' + mailIcon + '</a>' +
+               '<a href="' + SITE.github + '" class="resume-btn" target="_blank" rel="noopener noreferrer" aria-label="GitHub">' + githubIcon + '</a>' +
+               '<a href="' + SITE.resume + '" class="resume-btn" target="_blank" rel="noopener noreferrer">CV</a>' +
+               '<button type="button" class="theme-toggle" data-theme-toggle></button>' +
+             '</div>' +
            '</header>';
   }
 

@@ -20,26 +20,33 @@
   font-weight: bold;
   text-decoration: none;
 }
+.site-actions {
+  display: flex;
+  gap: 0.7em;
+  align-items: center;
+}
 
 .theme-toggle,
 .resume-btn {
   font: inherit;
-  font-size: 0.8em;
-  line-height: inherit;
+  font-size: 0.9em;
+  line-height: 1;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--accent);
   background: transparent;
-  border: 1px solid var(--border);
-  padding: 0.15em 0.7em;
+  border: none;
+  padding: 0.2em 0.25em;
   cursor: pointer;
 }
 .theme-toggle:hover,
 .theme-toggle:focus-visible,
 .resume-btn:hover,
 .resume-btn:focus-visible {
-  color: var(--bg);
-  background: var(--accent);
+  color: var(--text);
+  background: transparent;
   text-decoration: none;
 }
 .resume-btn:visited {
@@ -47,12 +54,12 @@
 }
 .resume-btn:visited:hover,
 .resume-btn:visited:focus-visible {
-  color: var(--bg);
+  color: var(--text);
 }
 .btn-icon {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
+  width: 1.15em;
+  height: 1.15em;
+  display: block;
 }
 
 .plain { padding-left: 1.2em; margin: 0.6em 0; }
